@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Josi Manicure | Ateliê Privé de Beleza & Saúde Ungueal</title>
+  
+  <!-- Fontes Google Nobres & Editoriais -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar de Estética Editorial (Painel Fixo Elegante) -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Identidade Visual: Só 'Josi Manicures' -->
+      <a href="#home" class="brand-link" title="Josi Manicures">
+        <span class="brand-title" id="navBrandTitle">Josi Manicures</span>
+      </a>
+
+      <!-- Menu Principal Centralizado & Elegante com Círculo em Cada Opção -->
+      <nav class="nav-links" id="navLinks">
+        <a href="#home" class="nav-item-btn active">
+          <span class="nav-circle-dot"></span>
+          <span>Início</span>
+        </a>
+        <a href="#sobre" class="nav-item-btn">
+          <span class="nav-circle-dot"></span>
+          <span class="nowrap-text">A Profissional</span>
+        </a>
+        <a href="#servicos" class="nav-item-btn">
+          <span class="nav-circle-dot"></span>
+          <span>Procedimentos</span>
+        </a>
+        <a href="#agendamento" class="nav-item-btn">
+          <span class="nav-circle-dot"></span>
+          <span>Agendamentos</span>
+        </a>
+        <a href="#loja" class="nav-item-btn">
+          <span class="nav-circle-dot"></span>
+          <span>Boutique</span>
+        </a>
+        <a href="#contato" class="nav-item-btn">
+          <span class="nav-circle-dot"></span>
+          <span>Atelier</span>
+        </a>
+      </nav>
+
+      <!-- Ações do Header -->
+      <div class="nav-actions">
+        <!-- Sacola de Cosméticos Integrada & Coordenada -->
+        <button class="nav-cart-btn" id="openCartBtn" aria-label="Abrir Sacola de Cosméticos">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="nav-cart-label">Sacola</span>
+          <span class="cart-badge" id="cartBadgeCount">0</span>
+        </button>
+
+        <!-- Botão de Agendamento Editorial -->
+        <a href="#agendamento" class="btn-editorial-book">
+          <span>Agendar</span>
+          <span class="btn-arrow-icon">→</span>
+        </a>
+
+        <!-- Menu Mobile -->
+        <button class="menu-toggle-btn" id="menuToggleBtn" aria-label="Abrir Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner Principal / Composição Editorial Assimétrica -->
+  <section class="hero-section" id="home">
+    <div class="container">
+      <div class="hero-editorial-grid">
+        
+        <!-- Coluna Esquerda: Conteúdo & Tipografia com Voz de Atelier -->
+        <div class="hero-editorial-left">
+          <div class="hero-collection-stamp">
+            <span class="stamp-line"></span>
+            <span class="stamp-text">ATENDIMENTO INDIVIDUAL • BIOSSEGURANÇA HOSPITALAR</span>
+          </div>
+
+          <h1 class="hero-editorial-heading">
+            Sua beleza merece <br>
+            <span class="serif-accent">esse cuidado.</span>
+          </h1>
+
+          <p class="hero-editorial-body" id="heroDesc">
+            Protocolos especializados de saúde e acabamento ungueal, combinando a delicadeza 
+            da cutilagem russa suave com produtos dermatologicamente selecionados. 
+            Uma pausa acolhedora e exclusiva no seu dia, dedicada ao autocuidado genuíno.
+          </p>
+
+          <!-- Bloco de Agendamento Refinado -->
+          <div class="hero-editorial-actions">
+            <a href="#agendamento" class="btn-atelier-primary">
+              <span>Agendar Atendimento Exclusivo</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a href="#servicos" class="btn-atelier-secondary">
+              <span>Conhecer Procedimentos & Valores</span>
+            </a>
+          </div>
+
+          <!-- Pilares de Confiança em Linha Fina Editorial -->
+          <div class="hero-editorial-manifesto">
+            <div class="manifesto-pill">
+              <span class="manifesto-num">01</span>
+              <div>
+                <strong>Autoclave Hospitalar</strong>
+                <span>Materiais 100% esterilizados</span>
+              </div>
+            </div>
+            <div class="manifesto-sep"></div>
+            <div class="manifesto-pill">
+              <span class="manifesto-num">02</span>
+              <div>
+                <strong>Cutilagem Suave</strong>
+                <span>Preservação e saúde da lâmina</span>
+              </div>
+            </div>
+            <div class="manifesto-sep"></div>
+            <div class="manifesto-pill">
+              <span class="manifesto-num">03</span>
+              <div>
+                <strong>Espaço Acolhedor</strong>
+                <span>Atendimento exclusivo e biossegurança</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Fotografia Editorial Ampla & Sobreposição de Detalhe -->
+        <div class="hero-editorial-right">
+          <div class="editorial-portrait-frame">
+            <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=85" 
+                 alt="Manicure e cuidados elegantes com unhas naturais" 
+                 class="editorial-main-img" id="heroImage">
+            
+            <!-- Detalhe Flutuante Assimétrico (Sensorial) -->
+            <div class="editorial-overlap-card">
+              <span class="overlap-tag">RITUAL DE CUIDADO</span>
+              <p class="overlap-quote">"O carinho e a precisão em cada detalhe revelam a elegância natural das suas mãos."</p>
+              <div class="overlap-signature">
+                <span class="sig-monogram">JM</span>
+                <div>
+                  <strong>Josi Manicure</strong>
+                  <span>Especialista em Saúde Ungueal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Sobre a Profissional -->
+  <section class="section section-bg-soft" id="sobre">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-box">
+          <img src="assets/josi-profissional.jpg" 
+               alt="Josiane Aranha - Especialista em Saúde e Estética Ungueal" 
+               class="about-img" id="aboutProfessionalPhoto">
+        </div>
+        <div class="about-content">
+          <span class="section-tag">A PROFISSIONAL</span>
+          <h2 class="section-title">Dedicação, técnica e carinho em cada detalhe.</h2>
+          <p class="about-bio" id="aboutBioText">
+            Olá, seja muito bem-vinda! Acredito que cuidar das mãos e dos pés vai muito além da estética: é um ritual de amor-próprio, autoestima e relaxamento.
+            Trabalho com protocolos rigorosos de biossegurança hospitalar, instrumentos esterilizados em autoclave e produtos de alta tecnologia dermatológica para garantir saúde e durabilidade às suas unhas.
+          </p>
+
+          <div class="about-pillars">
+            <div class="pillar-item">
+              <div class="pillar-icon">🧴</div>
+              <h4>Cosméticos Selecionados</h4>
+              <p>Óleos nobres, cremes com manteigas vegetais e esmaltes livres de substâncias agressivas.</p>
+            </div>
+            <div class="pillar-item">
+              <div class="pillar-icon">🔬</div>
+              <h4>Biossegurança Rigorosa</h4>
+              <p>Autoclave com controle biológico semanal e materiais descartáveis individuais.</p>
+            </div>
+            <div class="pillar-item">
+              <div class="pillar-icon">🌸</div>
+              <h4>Atendimento Individual</h4>
+              <p>Horário reservado com atenção total e carinho dedicado a você em cada detalhe.</p>
+            </div>
+            <div class="pillar-item">
+              <div class="pillar-icon">✨</div>
+              <h4>Precisão & Durabilidade</h4>
+              <p>Cutilagem russa sem cortes que retarda o crescimento e prolonga a perfeição do esmalte.</p>
+            </div>
+          </div>
+
+          <div class="about-actions-group">
+            <a href="#agendamento" class="btn btn-primary">Reservar Minha Experiência</a>
+          </div>
+
+          <!-- Contato Direto e Redes da Profissional (WhatsApp, Instagram, Threads) -->
+          <div class="about-direct-contact">
+            <span class="about-contact-label">Acompanhe e fale diretamente com Josiane:</span>
+            <div class="about-social-buttons">
+              <a href="https://wa.me/5535998776684" target="_blank" rel="noopener noreferrer" class="social-contact-pill whatsapp-pill">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.45 0.743.965 1.202.664.591 1.224.774 1.397.86.173.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+                  <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.39 5.08L2 22l5.05-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18.2c-1.63 0-3.14-.49-4.42-1.33l-.32-.2-3.15.83.84-3.07-.21-.34A8.17 8.17 0 013.8 12c0-4.52 3.68-8.2 8.2-8.2s8.2 3.68 8.2 8.2-3.68 8.2-8.2 8.2z"/>
+                </svg>
+                <span>WhatsApp (35) 99877-6684</span>
+              </a>
+              <a href="https://www.instagram.com/josiane_aranha_91?utm_source=ig_web_button_share_sheet&vrfl=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" class="social-contact-pill instagram-pill">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span>Instagram @josiane_aranha_91</span>
+              </a>
+              <a href="https://www.threads.net/@josiane_aranha_91" target="_blank" rel="noopener noreferrer" class="social-contact-pill threads-pill">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.186 24C5.467 24 0 18.673 0 12.122 0 5.57 5.467.243 12.186.243c6.643 0 11.95 5.228 11.95 11.879 0 .617-.047 1.23-.14 1.832h-3.923c.047-.58.07-.942.07-1.393 0-4.41-3.568-7.986-7.957-7.986-4.389 0-7.957 3.576-7.957 7.986 0 4.411 3.568 7.987 7.957 7.987 2.148 0 4.145-.85 5.623-2.387l2.84 2.766C18.665 22.84 15.545 24 12.186 24zm4.498-10.742c0-2.482-1.99-4.502-4.444-4.502-2.455 0-4.445 2.02-4.445 4.502 0 2.483 1.99 4.503 4.445 4.503.963 0 1.86-.316 2.593-.859l1.649 1.606c-1.196.964-2.69 1.542-4.242 1.542-3.714 0-6.734-3.056-6.734-6.792 0-3.735 3.02-6.791 6.734-6.791 3.715 0 6.735 3.056 6.735 6.791 0 .654-.093 1.306-.279 1.932l-2.216-2.164a2.26 2.26 0 0 0 .004-.268z"/>
+                </svg>
+                <span>Threads @josiane_aranha_91</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Antes & Depois (Posicionada Imediatamente Abaixo de 'A Profissional') -->
+  <section class="section" id="transformacoes">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">TRANSFORMAÇÃO REAL</span>
+        <h2 class="section-title">Evolução do Cuidado: Antes & Depois</h2>
+        <p class="section-subtitle">
+          Na esquerda você vê o <strong>Antes</strong> (unha natural sem esmaltação) e na direita o <strong>Depois</strong> (unha feita com esmaltação vermelha impecável). Arraste a barra para os lados para conferir.
+        </p>
+      </div>
+
+      <!-- Container do Comparador de Fotografia Real (Cores 100% Naturais da Pele e Ambiente) -->
+      <div class="ba-container" id="baContainer">
+        <!-- Badges Fixos nos Cantos (Esquerda: Antes | Direita: Depois) -->
+        <div class="ba-fixed-badge before-fixed-badge">👈 ANTES • Unha Natural</div>
+        <div class="ba-fixed-badge after-fixed-badge">DEPOIS • Unha Feita 👉</div>
+
+        <!-- Camada Base Fundo (Lado Direito): DEPOIS - Unha Feita com Esmaltação Vermelha -->
+        <div class="ba-layer ba-base-layer">
+          <img src="assets/unhas-vermelhas-depois.jpg" 
+               alt="Depois: Mão com unhas feitas e esmaltação vermelha de acabamento profissional" 
+               class="ba-photo-img ba-img-after" id="baBaseImg">
+        </div>
+
+        <!-- Camada Superior Recortável (Lado Esquerdo): ANTES - Unha Natural sem Esmalte -->
+        <div class="ba-layer ba-clipped-layer" id="baBeforeSide">
+          <img src="assets/unhas-naturais-antes.jpg" 
+               alt="Antes: Mesmíssima mão com unhas naturais limpas sem camada de esmalte" 
+               class="ba-photo-img ba-img-before" id="baClippedImg">
+        </div>
+
+        <!-- Barra Divisora com Alça Central -->
+        <div class="ba-divider-handle" id="baDividerHandle">
+          <div class="handle-vertical-line"></div>
+          <div class="handle-circle-knob">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+          <div class="handle-vertical-line"></div>
+        </div>
+
+        <div class="ba-instruction-pill">
+          <span>👈 Arraste para a esquerda (Ver Unha Feita) • Arraste para a direita (Ver Unha Natural) 👉</span>
+        </div>
+      </div>
+
+      <!-- Bloco de Textos Explicativos FORA da área arrastável -->
+      <div class="ba-descriptions-row">
+        <div class="ba-desc-card before-desc-card">
+          <span class="desc-card-tag before-tag">Esquerda • Antes</span>
+          <h4>Unha Natural sem Esmalte</h4>
+          <p>Mão em repouso sobre o tecido com unhas naturais limpas, lâmina fosca sem esmaltação e cutículas antes do tratamento.</p>
+        </div>
+
+        <div class="ba-desc-card after-desc-card">
+          <span class="desc-card-tag after-tag">Direita • Depois</span>
+          <h4>Unha Feita & Esmaltação Vermelha</h4>
+          <p>A mesmíssima mão após o procedimento: esmaltação vermelha vibrante e uniforme, cutilagem técnica alinhada e brilho espelhado duradouro.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 16px;">
+        <small style="font-size: 0.8rem; color: var(--text-light); font-style: italic;">
+          * Exemplo visual demonstrativo comparando a mesma mão com unhas naturais e após o procedimento de cutilagem e esmaltação vermelha no Ateliê Josi Manicure.
+        </small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Galeria Mosaico 3D (Efeito Scroll Reveal com Fotos Reais de Unhas) -->
+  <section class="mosaic-gallery-section" id="galeria">
+    <div class="container mosaic-intro-container">
+      <div class="section-header" style="margin-bottom: 24px;">
+        <span class="section-tag">MOSAICO DE CRIAÇÕES EXCLUSIVAS</span>
+        <h2 class="section-title">Galeria de Arte & Cuidado Ungueal</h2>
+        <p class="section-subtitle">
+          Role a página para ver nossas produções reais se conectando em perfeita simetria. Cada acabamento esculpido com precisão milimétrica.
+        </p>
+      </div>
+    </div>
+
+    <!-- Scroll Track para animação 3D de rolagem -->
+    <div class="mosaic-scroll-track" id="mosaicTrack">
+      <div class="mosaic-sticky-viewport">
+        <div class="mosaic-wrapper" id="mosaicWrapper">
+          <div class="mosaic-tile tile-1" style="background-image: url('assets/galeria/unha-1.jpg'); --bg: url('assets/galeria/unha-1.jpg');">
+            <img src="assets/galeria/unha-1.jpg" alt="Unhas Josi Manicures 1" class="mosaic-tile-img" loading="eager">
+          </div>
+          <div class="mosaic-tile tile-2" style="background-image: url('assets/galeria/unha-2.jpg'); --bg: url('assets/galeria/unha-2.jpg');">
+            <img src="assets/galeria/unha-2.jpg" alt="Unhas Josi Manicures 2" class="mosaic-tile-img" loading="eager">
+          </div>
+          <div class="mosaic-tile tile-3" style="background-image: url('assets/galeria/unha-3.jpg'); --bg: url('assets/galeria/unha-3.jpg');">
+            <img src="assets/galeria/unha-3.jpg" alt="Unhas Josi Manicures 3" class="mosaic-tile-img" loading="eager">
+          </div>
+          <div class="mosaic-tile tile-4" style="background-image: url('assets/galeria/unha-4.jpg'); --bg: url('assets/galeria/unha-4.jpg');">
+            <img src="assets/galeria/unha-4.jpg" alt="Unhas Josi Manicures 4" class="mosaic-tile-img" loading="eager">
+          </div>
+          
+          <div class="mosaic-tile center" id="mosaicCenter">
+            <hgroup>
+              <span class="mosaic-center-badge">PORTFÓLIO DE ARTE UNGUEAL</span>
+              <h3 class="mosaic-center-brand">Josi Manicures</h3>
+              <p class="mosaic-center-sub">Criações e acabamentos impecáveis</p>
+            </hgroup>
+            <div class="mouse">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="3" width="12" height="18" rx="6"></rect>
+                <line x1="12" y1="7" x2="12" y2="11"></line>
+              </svg>
+            </div>
+          </div>
+
+          <div class="mosaic-tile tile-5" style="background-image: url('assets/galeria/unha-5.jpg'); --bg: url('assets/galeria/unha-5.jpg');">
+            <img src="assets/galeria/unha-5.jpg" alt="Unhas Josi Manicures 5" class="mosaic-tile-img" loading="eager">
+          </div>
+          <div class="mosaic-tile tile-6" style="background-image: url('assets/galeria/unha-6.jpg'); --bg: url('assets/galeria/unha-6.jpg');">
+            <img src="assets/galeria/unha-6.jpg" alt="Unhas Josi Manicures 6" class="mosaic-tile-img" loading="eager">
+          </div>
+          <div class="mosaic-tile tile-7" style="background-image: url('assets/galeria/unha-7.jpg'); --bg: url('assets/galeria/unha-7.jpg');">
+            <img src="assets/galeria/unha-7.jpg" alt="Unhas Josi Manicures 7" class="mosaic-tile-img" loading="eager">
+          </div>
+          <div class="mosaic-tile tile-8" style="background-image: url('assets/galeria/unha-8.jpg'); --bg: url('assets/galeria/unha-8.jpg');">
+            <img src="assets/galeria/unha-8.jpg" alt="Unhas Josi Manicures 8" class="mosaic-tile-img" loading="eager">
+          </div>
+        </div>
+
+        <!-- Indicador Elegante de Mosaico Montado -->
+        <div class="mosaic-assembled-pill" id="mosaicAssembledPill">
+          <span class="pill-dot">✦</span>
+          <span>Mosaico completo • Passe o cursor ou toque nas unhas para admirar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Serviços & Preços -->
+  <section class="section" id="servicos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">MENU DE PROCEDIMENTOS</span>
+        <h2 class="section-title">Serviços Pensados para Você</h2>
+        <p class="section-subtitle">Valores transparentes e duração estimada de cada procedimento. Escolha o serviço perfeito para o seu momento.</p>
+      </div>
+
+      <!-- Grid de Serviços Carregados Dinamicamente da Camada de Dados -->
+      <div class="services-grid" id="servicesGrid">
+        <!-- Injetado dinamicamente via script.js a partir do AppDB -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Agendamento Online Dinâmico -->
+  <section class="section section-bg-soft booking-section" id="agendamento">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">RESERVA ONLINE</span>
+        <h2 class="section-title">Agendamento Fácil & Seguro</h2>
+        <p class="section-subtitle">Consulte os horários disponíveis em tempo real e garanta sua reserva em poucos segundos.</p>
+      </div>
+
+      <div class="booking-layout">
+        <!-- Guia e Regras da Agenda -->
+        <div class="booking-guide-box">
+          <h3>Como funciona o agendamento:</h3>
+          <p>Nosso sistema verifica automaticamente a disponibilidade da agenda e bloqueia horários já reservados.</p>
+
+          <ul class="rules-list">
+            <li>
+              <div class="rule-number">1</div>
+              <div>
+                <strong>Escolha o Procedimento</strong>
+                <span>Você confere o valor e o tempo estimado de atendimento de cada opção.</span>
+              </div>
+            </li>
+            <li>
+              <div class="rule-number">2</div>
+              <div>
+                <strong>Defina o Dia e Horário Livre</strong>
+                <span>Horários já ocupados ficam bloqueados para evitar qualquer duplicidade na agenda.</span>
+              </div>
+            </li>
+            <li>
+              <div class="rule-number">3</div>
+              <div>
+                <strong>Informe seus Dados</strong>
+                <span>Basta preencher seu nome e WhatsApp para receber o lembrete de confirmação.</span>
+              </div>
+            </li>
+            <li>
+              <div class="rule-number">4</div>
+              <div>
+                <strong>Confirmação Imediata</strong>
+                <span>Seu horário fica garantido no nosso sistema e você pode enviar a confirmação para o WhatsApp!</span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="booking-callout" style="margin-top: 30px; padding: 18px; background: var(--bg-surface-soft); border-radius: var(--radius-sm); border: 1px solid var(--nude-border); font-size: 0.85rem; color: var(--text-muted);">
+            💡 <em>Deseja remarcar ou cancelar? Entre em contato com pelo menos 4 horas de antecedência pelo WhatsApp.</em>
+          </div>
+        </div>
+
+        <!-- Formulário Dinâmico de Agendamento -->
+        <div class="booking-form-card">
+          <div class="booking-form-header">
+            <h3>Selecione suas preferências</h3>
+            <p>Os horários exibidos abaixo são atualizados dinamicamente.</p>
+          </div>
+
+          <form id="clientBookingForm">
+            <!-- 1. Procedimento -->
+            <div class="form-group">
+              <label for="bookServiceSelect" class="form-label">1. Escolha o Procedimento:</label>
+              <select id="bookServiceSelect" class="form-control" required>
+                <option value="" disabled selected>Carregando serviços...</option>
+              </select>
+            </div>
+
+            <!-- 2. Data -->
+            <div class="form-group">
+              <label for="bookDateInput" class="form-label">2. Escolha o Dia de Atendimento:</label>
+              <input type="date" id="bookDateInput" class="form-control" required>
+              <small id="dayStatusNotice" style="display:block; margin-top: 6px; font-size: 0.8rem; color: var(--text-light);"></small>
+            </div>
+
+            <!-- 3. Horários Livres Calculados em Tempo Real -->
+            <div class="form-group">
+              <label class="form-label">3. Horários Disponíveis:</label>
+              <div class="time-slots-grid" id="timeSlotsContainer">
+                <div class="slots-empty-notice">Selecione uma data para ver os horários livres.</div>
+              </div>
+              <input type="hidden" id="selectedTimeValue" required>
+            </div>
+
+            <!-- 4. Dados da Cliente -->
+            <div class="form-row">
+              <div class="form-group">
+                <label for="clientFullName" class="form-label">Seu Nome:</label>
+                <input type="text" id="clientFullName" class="form-control" placeholder="Ex: Patrícia Souza" required>
+              </div>
+              <div class="form-group">
+                <label for="clientPhoneInput" class="form-label">WhatsApp com DDD:</label>
+                <input type="tel" id="clientPhoneInput" class="form-control" placeholder="(11) 98888-7777" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="clientNotesInput" class="form-label">Observações (opcional):</label>
+              <textarea id="clientNotesInput" class="form-control" rows="2" placeholder="Ex: Tenho preferência por tons nudes, preciso remover esmalte anterior, etc."></textarea>
+            </div>
+
+            <!-- Resumo Dinâmico da Reserva -->
+            <div class="booking-summary-panel">
+              <div class="summary-row">
+                <span>Procedimento:</span>
+                <strong id="summaryServiceName">Selecione um serviço</strong>
+              </div>
+              <div class="summary-row">
+                <span>Data e Horário:</span>
+                <strong id="summaryDateString">Selecione data e hora</strong>
+              </div>
+              <div class="summary-row">
+                <span>Duração Estimada:</span>
+                <strong id="summaryDuration">--</strong>
+              </div>
+              <div class="summary-row total-row">
+                <span>Valor no Ateliê:</span>
+                <span class="summary-price-tag" id="summaryPriceText">R$ 0,00</span>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-large w-100" id="btnSubmitBooking">
+              Confirmar Agendamento
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loja de Cosméticos e Cuidados -->
+  <section class="section" id="loja">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">BOUTIQUE EXCLUSIVA</span>
+        <h2 class="section-title">Cosméticos & Cuidados Home Care</h2>
+        <p class="section-subtitle">Prolongue a maciez, a hidratação e a saúde das suas unhas com os mesmos produtos utilizados no ateliê.</p>
+      </div>
+
+      <!-- Filtros da Loja -->
+      <div class="store-filter-bar">
+        <button class="store-filter-btn active" data-category="all">Todos</button>
+        <button class="store-filter-btn" data-category="cremes">Cremes & Hidratantes</button>
+        <button class="store-filter-btn" data-category="oleos">Óleos & Cutículas</button>
+        <button class="store-filter-btn" data-category="esmaltes">Esmaltes & Finalizadores</button>
+        <button class="store-filter-btn" data-category="cuidados">Kits & Cuidados</button>
+      </div>
+
+      <!-- Grid de Produtos Injetado Dinamicamente -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Renderizado dinamicamente via script.js do AppDB -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Avaliações de Clientes -->
+  <section class="section" id="avaliacoes">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">DEPOIMENTOS</span>
+        <h2 class="section-title">O que Nossas Clientes Dizem</h2>
+        <p class="section-subtitle">A confiança de quem já transformou o momento de fazer as unhas em um ritual indispensável.</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-item-card">
+          <div class="review-rating-stars">★★★★★</div>
+          <p class="review-quote">"O atendimento da Josi é impecável! O ambiente é super tranquilo, o cuidado e carinho em cada detalhe são únicos e minha cutícula nunca mais inflamou nem machucou. Não troco por nada!"</p>
+          <div class="review-client-meta">
+            <div class="client-avatar">CF</div>
+            <div class="client-name-details">
+              <strong>Camila Ferreira</strong>
+              <span>Cliente há 2 anos • Manicure & Spa</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-item-card">
+          <div class="review-rating-stars">★★★★★</div>
+          <p class="review-quote">"A esmaltação em gel dura mais de 20 dias intacta na minha rotina super corrida. Além disso, o óleo de jojoba que comprei na loja salvou minhas cutículas!"</p>
+          <div class="review-client-meta">
+            <div class="client-avatar">RS</div>
+            <div class="client-name-details">
+              <strong>Renata Silveira</strong>
+              <span>Esmaltação em Gel & Produtos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-item-card">
+          <div class="review-rating-stars">★★★★★</div>
+          <p class="review-quote">"Agendar pelo site é incrivelmente prático, você escolhe o horário certinho sem ter que ficar esperando mensagem. Pontualidade britânica e serviço 5 estrelas."</p>
+          <div class="review-client-meta">
+            <div class="client-avatar">AL</div>
+            <div class="client-name-details">
+              <strong>Amanda Lourenço</strong>
+              <span>Combo Mão e Pé</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Atendimento & Contato -->
+  <section class="section section-bg-soft" id="contato">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">ATENDIMENTO & AGENDAMENTOS</span>
+        <h2 class="section-title">Fale com Josiane Aranha</h2>
+        <p class="section-subtitle">Atendimento exclusivo com agendamento prévio. Consulte horários disponíveis, tire dúvidas e garanta o seu horário diretamente pelo WhatsApp.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+        <div style="background: var(--bg-surface); padding: 36px; border-radius: var(--radius-lg); border: 1px solid var(--nude-border); box-shadow: var(--shadow-subtle);">
+          <h3 style="font-family: var(--font-serif); font-size: 1.5rem; color: var(--text-title); margin-bottom: 20px;">Informações de Atendimento</h3>
+          
+          <div style="display: flex; flex-direction: column; gap: 16px; font-size: 0.95rem; color: var(--text-main);">
+            <div>
+              <strong style="color: var(--text-title); display: block;">📍 Atendimento:</strong>
+              <span id="footerAddressText">Atendimento exclusivo com hora marcada (Região de Minas Gerais / DDD 35)</span>
+            </div>
+            <div>
+              <strong style="color: var(--text-title); display: block;">⏰ Dias & Horários:</strong>
+              <span>Segunda a Sábado, das 09h às 19h (Com agendamento prévio)</span>
+            </div>
+            <div>
+              <strong style="color: var(--text-title); display: block;">💬 WhatsApp Direto:</strong>
+              <a href="https://wa.me/5535998776684" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 600; text-decoration: none;" id="footerPhoneText">
+                (35) 99877-6684
+              </a>
+            </div>
+            <div>
+              <strong style="color: var(--text-title); display: block;">📸 Instagram:</strong>
+              <a href="https://www.instagram.com/josiane_aranha_91?utm_source=ig_web_button_share_sheet&vrfl=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 600; text-decoration: none;" id="footerInstaText">
+                @josiane_aranha_91
+              </a>
+            </div>
+            <div>
+              <strong style="color: var(--text-title); display: block;">🧵 Threads:</strong>
+              <a href="https://www.threads.net/@josiane_aranha_91" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 600; text-decoration: none;">
+                @josiane_aranha_91
+              </a>
+            </div>
+          </div>
+
+          <div style="margin-top: 26px;">
+            <a href="https://wa.me/5535998776684" target="_blank" rel="noopener noreferrer" class="btn btn-champagne">Chamar no WhatsApp</a>
+          </div>
+        </div>
+
+        <div style="background: #EAE2D7; border-radius: var(--radius-lg); overflow: hidden; min-height: 360px; border: 1px solid var(--nude-border); position: relative; display: flex; align-items: center; justify-content: center; text-align: center; padding: 30px;">
+          <div>
+            <span style="font-size: 3rem; display: block; margin-bottom: 12px;">💅</span>
+            <h4 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--text-title); margin-bottom: 8px;">Cuidado & Biossegurança</h4>
+            <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 320px; margin: 0 auto 20px;">
+              Protocolo completo com materiais descartáveis individuais, esterilização em autoclave e cosméticos dermatológicos de alta qualidade.
+            </p>
+            <span style="font-size: 0.8rem; background: var(--bg-surface); padding: 6px 14px; border-radius: 999px; border: 1px solid var(--nude-border); color: var(--accent-gold); font-weight: 600;">
+              Biossegurança Rigorosa • Cutilagem Russa • Atendimento Individual
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <h3 id="footerBrandTitle">Josi Manicures</h3>
+        <p class="footer-bio">
+          Cuidado especializado, saúde das unhas e momentos de acolhimento e renovação. Cosméticos selecionados para a sua rotina de autocuidado diário.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="#home">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#agendamento">Agendamento</a>
+        <a href="#loja">Loja de Cosméticos</a>
+        <a href="#sobre">Sobre a Profissional</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Profissional</h4>
+        <a href="admin.html">Painel Administrativo</a>
+        <a href="#contato">Localização</a>
+        <a href="#agendamento">Regras de Horários</a>
+        <a href="https://wa.me/5535998776684" target="_blank" rel="noopener noreferrer">Falar no WhatsApp ((35) 99877-6684)</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Redes Sociais</h4>
+        <a href="https://www.instagram.com/josiane_aranha_91?utm_source=ig_web_button_share_sheet&vrfl=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Instagram (@josiane_aranha_91)</a>
+        <a href="https://wa.me/5535998776684" target="_blank" rel="noopener noreferrer">WhatsApp Ateliê</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div class="container">
+        <p>&copy; 2026 <span id="copyrightBrandName">Josi Manicures</span>. Todos os direitos reservados. Plataforma desenvolvida com carinho e precisão.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botão Flutuante de Contato Direto via WhatsApp -->
+  <a href="https://wa.me/5535998776684" target="_blank" rel="noopener noreferrer" class="floating-whatsapp-btn" id="floatingWhatsAppBtn" aria-label="Falar no WhatsApp com Josi Manicures">
+    <svg class="whatsapp-float-svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.35.491 1.199.534 1.286.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.353.101.174.45 0.743.965 1.202.664.591 1.224.774 1.397.86.173.086.275.072.376-.043.101-.116.433-.506.549-.679.116-.173.231-.144.39-.086s1.011.477 1.184.564.289.13.332.202c.043.073.043.419-.101.824z"/>
+      <path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.39 5.08L2 22l5.05-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18.2c-1.63 0-3.14-.49-4.42-1.33l-.32-.2-3.15.83.84-3.07-.21-.34A8.17 8.17 0 013.8 12c0-4.52 3.68-8.2 8.2-8.2s8.2 3.68 8.2 8.2-3.68 8.2-8.2 8.2z"/>
+    </svg>
+    <span class="floating-whatsapp-text">Falar no WhatsApp</span>
+  </a>
+
+  <!-- Drawer da Sacola de Compras -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-drawer-header">
+      <h3>Sua Sacola de Cosméticos</h3>
+      <button class="close-drawer-btn" id="closeCartBtn">&times;</button>
+    </div>
+
+    <div class="cart-drawer-body" id="cartItemsList">
+      <!-- Injetado dinamicamente via script.js -->
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-footer-subtotal">
+        <span>Subtotal:</span>
+        <strong id="cartSubtotalText">R$ 0,00</strong>
+      </div>
+      <div class="cart-footer-subtotal">
+        <span>Entrega / Retirada:</span>
+        <span>A combinar (ou grátis no ateliê)</span>
+      </div>
+      <div class="cart-footer-total">
+        <span>Total:</span>
+        <strong class="cart-footer-price" id="cartTotalText">R$ 0,00</strong>
+      </div>
+
+      <button class="btn btn-champagne w-100" id="btnCheckoutCart">
+        Finalizar Pedido via WhatsApp
+      </button>
+      <button class="btn btn-outline w-100 btn-sm" id="btnClearCartBtn" style="margin-top: 10px;">
+        Esvaziar Sacola
+      </button>
+    </div>
+  </aside>
+
+  <!-- Modal de Confirmação do Agendamento -->
+  <div class="modal-backdrop" id="bookingConfirmModal">
+    <div class="modal-window">
+      <button class="modal-close-icon" id="closeBookingModalBtn">&times;</button>
+      <div style="text-align: center; margin-bottom: 20px;">
+        <span style="font-size: 2.8rem;">🎉</span>
+        <h3 style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--text-title); margin: 8px 0;">Agendamento Registrado!</h3>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">
+          Seu horário foi reservado com sucesso no sistema.
+        </p>
+      </div>
+
+      <div style="background: var(--bg-surface-soft); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--nude-border); font-size: 0.9rem; margin-bottom: 24px;" id="bookingSuccessDetails">
+        <!-- Detalhes preenchidos via JS -->
+      </div>
+
+      <a href="#" id="sendWhatsAppConfirmationBtn" target="_blank" class="btn btn-champagne w-100 btn-large">
+        <span>Abrir WhatsApp para Confirmar</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- Toast Notificação -->
+  <div class="toast-box" id="appToast">
+    <span id="toastIcon">✓</span>
+    <span id="toastText">Operação realizada com sucesso!</span>
+  </div>
+
+  <!-- Carregamento da Camada de Dados e Lógica do Cliente -->
+  <script src="supabase-client.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
