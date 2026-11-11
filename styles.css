@@ -2429,19 +2429,15 @@ img {
 /* center */
 .mosaic-tile.center {
   grid-area: center;
-  justify-self: center !important;
-  align-self: center !important;
-  place-self: center !important;
-  margin: auto !important;
   background: linear-gradient(145deg, #2A211D 0%, #1A1412 100%);
   color: #FFFFFF;
   display: grid;
   place-content: center;
-  width: var(--mouse-w, 600px);
-  max-width: min(600px, 90vw);
-  max-height: min(600px, 80vh);
+  width: var(--mouse-w, 560px);
+  max-width: min(560px, 90vw);
+  max-height: min(560px, 80vh);
   aspect-ratio: 1;
-  translate: 0 0;
+  transform: translate3d(calc((var(--size-base, 100px) - var(--mouse-w, 560px)) / 2), calc((var(--size-base, 100px) - var(--mouse-w, 560px)) / 2), 0);
   border-radius: 18px;
   border: 1px solid rgba(212, 175, 55, 0.4);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 40px rgba(194, 166, 118, 0.18);
@@ -2589,14 +2585,6 @@ img {
     animation-timeline: --gallery-scroll-timeline;
     animation-range: entry 5% exit 95%;
   }
-
-  .mosaic-tile.center {
-    animation-name: animate-center;
-    animation-timing-function: linear;
-    animation-fill-mode: both;
-    animation-timeline: --gallery-scroll-timeline;
-    animation-range: entry 5% exit 95%;
-  }
 }
 
 @media (max-width: 900px) {
@@ -2608,11 +2596,7 @@ img {
   }
   .mosaic-tile.center {
     --mouse-w: 300px;
-    justify-self: center !important;
-    align-self: center !important;
-    place-self: center !important;
-    margin: auto !important;
-    translate: 0 0 !important;
+    transform: translate3d(calc((var(--size-base, 75px) - var(--mouse-w, 300px)) / 2), calc((var(--size-base, 75px) - var(--mouse-w, 300px)) / 2), 0);
     padding: 14px;
   }
 }
@@ -2628,11 +2612,7 @@ img {
   }
   .mosaic-tile.center {
     --mouse-w: 220px;
-    justify-self: center !important;
-    align-self: center !important;
-    place-self: center !important;
-    margin: auto !important;
-    translate: 0 0 !important;
+    transform: translate3d(calc((var(--size-base, 50px) - var(--mouse-w, 220px)) / 2), calc((var(--size-base, 50px) - var(--mouse-w, 220px)) / 2), 0);
     padding: 10px;
   }
   .mosaic-assembled-pill {

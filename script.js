@@ -925,47 +925,38 @@ function initMosaicGallery() {
       const isMobile = window.innerWidth <= 768;
       const startW = isMobile ? Math.min(window.innerWidth * 0.88, 300) : 560;
       const midW = isMobile ? Math.min(window.innerWidth * 0.70, 210) : 270;
-      const endW = isMobile ? 60 : 105;
+      const endW = isMobile ? 60 : 100;
 
-      let mouseW, cx, cy, textOpacity, mouseRotate, textDisplay;
+      let mouseW, textOpacity, mouseRotate, textDisplay;
 
       if (progress < 0.20) {
         const p = Math.max(0, (progress - 0.05) / 0.15);
         mouseW = startW - (startW - midW) * p;
-        cx = 0;
-        cy = 0;
         textOpacity = Math.max(0, 1 - p);
         mouseRotate = 0;
         textDisplay = textOpacity <= 0.05 ? 'none' : 'block';
       } else if (progress < 0.45) {
         const p = (progress - 0.20) / 0.25;
         mouseW = midW - (midW - endW) * p;
-        cx = 0;
-        cy = 0;
         textOpacity = 0;
         mouseRotate = 180 * p;
         textDisplay = 'none';
       } else {
         // A partir de 45%, o centro fica perfeitamente alinhado e travado no grid
         mouseW = endW;
-        cx = 0;
-        cy = 0;
         textOpacity = 0;
         mouseRotate = 180;
         textDisplay = 'none';
       }
 
-      if (isMobile) {
-        cx = 0;
-        cy = 0;
-      }
+      // Ancoragem geométrica perfeita no centro da tela:
+      // O card reside na célula central (tamanho endW). Conforme o card expande ou retrai,
+      // a translação proporcional mantém o centro dele milimetricamente fixo no centro do mosaico.
+      const cx = (endW - mouseW) / 2;
+      const cy = (endW - mouseW) / 2;
 
-      center.style.justifySelf = 'center';
-      center.style.alignSelf = 'center';
-      center.style.placeSelf = 'center';
-      center.style.margin = 'auto';
       center.style.width = `${mouseW}px`;
-      center.style.transform = 'translate3d(0, 0, 0)';
+      center.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
 
       const hgroup = center.querySelector('hgroup');
       if (hgroup) {
