@@ -40,6 +40,14 @@
           <span class="nav-circle-dot"></span>
           <span>Agendamentos</span>
         </a>
+        <a href="#galeria" class="nav-item-btn">
+          <span class="nav-circle-dot"></span>
+          <span>Galeria e Arte</span>
+        </a>
+        <a href="#transformacoes" class="nav-item-btn">
+          <span class="nav-circle-dot"></span>
+          <span>Antes e Depois</span>
+        </a>
         <a href="#loja" class="nav-item-btn">
           <span class="nav-circle-dot"></span>
           <span>Boutique</span>
@@ -246,144 +254,6 @@
     </div>
   </section>
 
-  <!-- Seção Antes & Depois (Posicionada Imediatamente Abaixo de 'A Profissional') -->
-  <section class="section" id="transformacoes">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">TRANSFORMAÇÃO REAL</span>
-        <h2 class="section-title">Evolução do Cuidado: Antes & Depois</h2>
-        <p class="section-subtitle">
-          Na esquerda você vê o <strong>Antes</strong> (unha natural sem esmaltação) e na direita o <strong>Depois</strong> (unha feita com esmaltação vermelha impecável). Arraste a barra para os lados para conferir.
-        </p>
-      </div>
-
-      <!-- Container do Comparador de Fotografia Real (Cores 100% Naturais da Pele e Ambiente) -->
-      <div class="ba-container" id="baContainer">
-        <!-- Badges Fixos nos Cantos (Esquerda: Antes | Direita: Depois) -->
-        <div class="ba-fixed-badge before-fixed-badge">👈 ANTES • Unha Natural</div>
-        <div class="ba-fixed-badge after-fixed-badge">DEPOIS • Unha Feita 👉</div>
-
-        <!-- Camada Base Fundo (Lado Direito): DEPOIS - Unha Feita com Esmaltação Vermelha -->
-        <div class="ba-layer ba-base-layer">
-          <img src="assets/unhas-vermelhas-depois.jpg" 
-               alt="Depois: Mão com unhas feitas e esmaltação vermelha de acabamento profissional" 
-               class="ba-photo-img ba-img-after" id="baBaseImg">
-        </div>
-
-        <!-- Camada Superior Recortável (Lado Esquerdo): ANTES - Unha Natural sem Esmalte -->
-        <div class="ba-layer ba-clipped-layer" id="baBeforeSide">
-          <img src="assets/unhas-naturais-antes.jpg" 
-               alt="Antes: Mesmíssima mão com unhas naturais limpas sem camada de esmalte" 
-               class="ba-photo-img ba-img-before" id="baClippedImg">
-        </div>
-
-        <!-- Barra Divisora com Alça Central -->
-        <div class="ba-divider-handle" id="baDividerHandle">
-          <div class="handle-vertical-line"></div>
-          <div class="handle-circle-knob">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </div>
-          <div class="handle-vertical-line"></div>
-        </div>
-
-        <div class="ba-instruction-pill">
-          <span>👈 Arraste para a esquerda (Ver Unha Feita) • Arraste para a direita (Ver Unha Natural) 👉</span>
-        </div>
-      </div>
-
-      <!-- Bloco de Textos Explicativos FORA da área arrastável -->
-      <div class="ba-descriptions-row">
-        <div class="ba-desc-card before-desc-card">
-          <span class="desc-card-tag before-tag">Esquerda • Antes</span>
-          <h4>Unha Natural sem Esmalte</h4>
-          <p>Mão em repouso sobre o tecido com unhas naturais limpas, lâmina fosca sem esmaltação e cutículas antes do tratamento.</p>
-        </div>
-
-        <div class="ba-desc-card after-desc-card">
-          <span class="desc-card-tag after-tag">Direita • Depois</span>
-          <h4>Unha Feita & Esmaltação Vermelha</h4>
-          <p>A mesmíssima mão após o procedimento: esmaltação vermelha vibrante e uniforme, cutilagem técnica alinhada e brilho espelhado duradouro.</p>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 16px;">
-        <small style="font-size: 0.8rem; color: var(--text-light); font-style: italic;">
-          * Exemplo visual demonstrativo comparando a mesma mão com unhas naturais e após o procedimento de cutilagem e esmaltação vermelha no Ateliê Josi Manicure.
-        </small>
-      </div>
-    </div>
-  </section>
-
-  <!-- Seção Galeria Mosaico 3D (Efeito Scroll Reveal com Fotos Reais de Unhas) -->
-  <section class="mosaic-gallery-section" id="galeria">
-    <div class="container mosaic-intro-container">
-      <div class="section-header" style="margin-bottom: 24px;">
-        <h2 class="section-title">Galeria e Arte</h2>
-        <p class="section-subtitle">
-          Role a página para ver nossas produções reais se conectando em perfeita simetria.
-        </p>
-      </div>
-    </div>
-
-    <!-- Scroll Track para animação 3D de rolagem -->
-    <div class="mosaic-scroll-track" id="mosaicTrack">
-      <div class="mosaic-sticky-viewport">
-        <div class="mosaic-wrapper" id="mosaicWrapper">
-          <div class="mosaic-tile tile-1" style="background-image: url('assets/galeria/unha-9.jpg'); --bg: url('assets/galeria/unha-9.jpg');">
-            <img src="assets/galeria/unha-9.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
-          </div>
-          <div class="mosaic-tile tile-2" style="background-image: url('assets/galeria/unha-2.jpg'); --bg: url('assets/galeria/unha-2.jpg');">
-            <img src="assets/galeria/unha-2.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
-          </div>
-          <div class="mosaic-tile tile-3" style="background-image: url('assets/galeria/unha-3.jpg'); --bg: url('assets/galeria/unha-3.jpg');">
-            <img src="assets/galeria/unha-3.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
-          </div>
-          <div class="mosaic-tile tile-4" style="background-image: url('assets/galeria/unha-4.jpg'); --bg: url('assets/galeria/unha-4.jpg');">
-            <img src="assets/galeria/unha-4.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
-          </div>
-          
-          <div class="mosaic-tile center" id="mosaicCenter">
-            <hgroup>
-              <span class="mosaic-center-badge">GALERIA E ARTE</span>
-              <h3 class="mosaic-center-brand">Josi Manicures</h3>
-              <p class="mosaic-center-sub">Criações e acabamentos impecáveis</p>
-            </hgroup>
-            <div class="mouse">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="6" y="3" width="12" height="18" rx="6"></rect>
-                <line x1="12" y1="7" x2="12" y2="11"></line>
-              </svg>
-            </div>
-          </div>
-
-          <div class="mosaic-tile tile-5" style="background-image: url('assets/galeria/unha-5.jpg'); --bg: url('assets/galeria/unha-5.jpg');">
-            <img src="assets/galeria/unha-5.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
-          </div>
-          <div class="mosaic-tile tile-6" style="background-image: url('assets/galeria/unha-6.jpg'); --bg: url('assets/galeria/unha-6.jpg');">
-            <img src="assets/galeria/unha-6.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
-          </div>
-          <div class="mosaic-tile tile-7" style="background-image: url('assets/galeria/unha-7.jpg'); --bg: url('assets/galeria/unha-7.jpg');">
-            <img src="assets/galeria/unha-7.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
-          </div>
-          <div class="mosaic-tile tile-8" style="background-image: url('assets/galeria/unha-8.jpg'); --bg: url('assets/galeria/unha-8.jpg');">
-            <img src="assets/galeria/unha-8.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
-          </div>
-        </div>
-
-        <!-- Indicador Elegante de Mosaico Montado -->
-        <div class="mosaic-assembled-pill" id="mosaicAssembledPill">
-          <span class="pill-dot">✦</span>
-          <span>Mosaico completo • Passe o cursor ou toque nas unhas para admirar</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Seção de Serviços & Preços -->
   <section class="section" id="servicos">
     <div class="container">
@@ -525,6 +395,144 @@
             </button>
           </form>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Galeria Mosaico 3D (Efeito Scroll Reveal com Fotos Reais de Unhas) -->
+  <section class="mosaic-gallery-section" id="galeria">
+    <div class="container mosaic-intro-container">
+      <div class="section-header" style="margin-bottom: 24px;">
+        <h2 class="section-title">Galeria e Arte</h2>
+        <p class="section-subtitle">
+          Role a página para ver nossas produções reais se conectando em perfeita simetria.
+        </p>
+      </div>
+    </div>
+
+    <!-- Scroll Track para animação 3D de rolagem -->
+    <div class="mosaic-scroll-track" id="mosaicTrack">
+      <div class="mosaic-sticky-viewport">
+        <div class="mosaic-wrapper" id="mosaicWrapper">
+          <div class="mosaic-tile tile-1" style="background-image: url('assets/galeria/unha-9.jpg'); --bg: url('assets/galeria/unha-9.jpg');">
+            <img src="assets/galeria/unha-9.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+          </div>
+          <div class="mosaic-tile tile-2" style="background-image: url('assets/galeria/unha-2.jpg'); --bg: url('assets/galeria/unha-2.jpg');">
+            <img src="assets/galeria/unha-2.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+          </div>
+          <div class="mosaic-tile tile-3" style="background-image: url('assets/galeria/unha-3.jpg'); --bg: url('assets/galeria/unha-3.jpg');">
+            <img src="assets/galeria/unha-3.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+          </div>
+          <div class="mosaic-tile tile-4" style="background-image: url('assets/galeria/unha-4.jpg'); --bg: url('assets/galeria/unha-4.jpg');">
+            <img src="assets/galeria/unha-4.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+          </div>
+          
+          <div class="mosaic-tile center" id="mosaicCenter">
+            <hgroup>
+              <span class="mosaic-center-badge">GALERIA E ARTE</span>
+              <h3 class="mosaic-center-brand">Josi Manicures</h3>
+              <p class="mosaic-center-sub">Criações e acabamentos impecáveis</p>
+            </hgroup>
+            <div class="mouse">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="3" width="12" height="18" rx="6"></rect>
+                <line x1="12" y1="7" x2="12" y2="11"></line>
+              </svg>
+            </div>
+          </div>
+
+          <div class="mosaic-tile tile-5" style="background-image: url('assets/galeria/unha-5.jpg'); --bg: url('assets/galeria/unha-5.jpg');">
+            <img src="assets/galeria/unha-5.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+          </div>
+          <div class="mosaic-tile tile-6" style="background-image: url('assets/galeria/unha-6.jpg'); --bg: url('assets/galeria/unha-6.jpg');">
+            <img src="assets/galeria/unha-6.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+          </div>
+          <div class="mosaic-tile tile-7" style="background-image: url('assets/galeria/unha-7.jpg'); --bg: url('assets/galeria/unha-7.jpg');">
+            <img src="assets/galeria/unha-7.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+          </div>
+          <div class="mosaic-tile tile-8" style="background-image: url('assets/galeria/unha-8.jpg'); --bg: url('assets/galeria/unha-8.jpg');">
+            <img src="assets/galeria/unha-8.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+          </div>
+        </div>
+
+        <!-- Indicador Elegante de Mosaico Montado -->
+        <div class="mosaic-assembled-pill" id="mosaicAssembledPill">
+          <span class="pill-dot">✦</span>
+          <span>Mosaico completo • Passe o cursor ou toque nas unhas para admirar</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Antes & Depois -->
+  <section class="section" id="transformacoes">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">TRANSFORMAÇÃO REAL</span>
+        <h2 class="section-title">Evolução do Cuidado: Antes & Depois</h2>
+        <p class="section-subtitle">
+          Na esquerda você vê o <strong>Antes</strong> (unha natural sem esmaltação) e na direita o <strong>Depois</strong> (unha feita com esmaltação vermelha impecável). Arraste a barra para os lados para conferir.
+        </p>
+      </div>
+
+      <!-- Container do Comparador de Fotografia Real (Cores 100% Naturais da Pele e Ambiente) -->
+      <div class="ba-container" id="baContainer">
+        <!-- Badges Fixos nos Cantos (Esquerda: Antes | Direita: Depois) -->
+        <div class="ba-fixed-badge before-fixed-badge">👈 ANTES • Unha Natural</div>
+        <div class="ba-fixed-badge after-fixed-badge">DEPOIS • Unha Feita 👉</div>
+
+        <!-- Camada Base Fundo (Lado Direito): DEPOIS - Unha Feita com Esmaltação Vermelha -->
+        <div class="ba-layer ba-base-layer">
+          <img src="assets/unhas-vermelhas-depois.jpg" 
+               alt="Depois: Mão com unhas feitas e esmaltação vermelha de acabamento profissional" 
+               class="ba-photo-img ba-img-after" id="baBaseImg">
+        </div>
+
+        <!-- Camada Superior Recortável (Lado Esquerdo): ANTES - Unha Natural sem Esmalte -->
+        <div class="ba-layer ba-clipped-layer" id="baBeforeSide">
+          <img src="assets/unhas-naturais-antes.jpg" 
+               alt="Antes: Mesmíssima mão com unhas naturais limpas sem camada de esmalte" 
+               class="ba-photo-img ba-img-before" id="baClippedImg">
+        </div>
+
+        <!-- Barra Divisora com Alça Central -->
+        <div class="ba-divider-handle" id="baDividerHandle">
+          <div class="handle-vertical-line"></div>
+          <div class="handle-circle-knob">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+          <div class="handle-vertical-line"></div>
+        </div>
+
+        <div class="ba-instruction-pill">
+          <span>👈 Arraste para a esquerda (Ver Unha Feita) • Arraste para a direita (Ver Unha Natural) 👉</span>
+        </div>
+      </div>
+
+      <!-- Bloco de Textos Explicativos FORA da área arrastável -->
+      <div class="ba-descriptions-row">
+        <div class="ba-desc-card before-desc-card">
+          <span class="desc-card-tag before-tag">Esquerda • Antes</span>
+          <h4>Unha Natural sem Esmalte</h4>
+          <p>Mão em repouso sobre o tecido com unhas naturais limpas, lâmina fosca sem esmaltação e cutículas antes do tratamento.</p>
+        </div>
+
+        <div class="ba-desc-card after-desc-card">
+          <span class="desc-card-tag after-tag">Direita • Depois</span>
+          <h4>Unha Feita & Esmaltação Vermelha</h4>
+          <p>A mesmíssima mão após o procedimento: esmaltação vermelha vibrante e uniforme, cutilagem técnica alinhada e brilho espelhado duradouro.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 16px;">
+        <small style="font-size: 0.8rem; color: var(--text-light); font-style: italic;">
+          * Exemplo visual demonstrativo comparando a mesma mão com unhas naturais e após o procedimento de cutilagem e esmaltação vermelha no Ateliê Josi Manicure.
+        </small>
       </div>
     </div>
   </section>
