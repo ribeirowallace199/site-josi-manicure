@@ -119,7 +119,7 @@ const DEFAULT_PRODUCTS = [
     description: 'Toque seco e rápida absorção. Nutre a matriz ungueal, prevenindo cutículas ressecadas e pontas esbranquiçadas.',
     price: 42.00,
     stock: 18,
-    image_url: 'assets/produtos/oleo-reparador.jpg',
+    image_url: 'assets/produtos/oleo-reparador.jpg?v=2',
     is_featured: true,
     is_active: true
   },
@@ -130,7 +130,7 @@ const DEFAULT_PRODUCTS = [
     description: 'Emulsão ultra-hidratante com fragrância delicada de baunilha e amêndoas doces. Cria uma película aveludada anti-ressecamento.',
     price: 48.00,
     stock: 14,
-    image_url: 'assets/produtos/creme-aveludado.jpg',
+    image_url: 'assets/produtos/creme-aveludado.jpg?v=2',
     is_featured: true,
     is_active: true
   },
@@ -141,7 +141,7 @@ const DEFAULT_PRODUCTS = [
     description: 'Fórmula avançada que penetra nas camadas mais profundas da lâmina, devolvendo flexibilidade e força natural contra descamações.',
     price: 58.00,
     stock: 10,
-    image_url: 'assets/produtos/serum-fortalecedor.jpg',
+    image_url: 'assets/produtos/serum-fortalecedor.jpg?v=2',
     is_featured: true,
     is_active: true
   },
@@ -152,7 +152,7 @@ const DEFAULT_PRODUCTS = [
     description: 'Pigmentação intensa com acabamento sofisticado e brilho espelhado sem necessidade de cabine. Fórmula hipoalergênica 9-Free.',
     price: 28.00,
     stock: 25,
-    image_url: 'assets/produtos/esmalte-gel.jpg',
+    image_url: 'assets/produtos/esmalte-gel.jpg?v=2',
     is_featured: false,
     is_active: true
   },
@@ -163,7 +163,7 @@ const DEFAULT_PRODUCTS = [
     description: 'Bálsamo sólido com cera de abelhas virgem, óleo de girassol e extrato de camomila. Perfeito para levar na bolsa e usar diariamente.',
     price: 35.00,
     stock: 12,
-    image_url: 'assets/produtos/cera-nutritiva.jpg',
+    image_url: 'assets/produtos/cera-nutritiva.jpg?v=2',
     is_featured: false,
     is_active: true
   },
@@ -174,7 +174,7 @@ const DEFAULT_PRODUCTS = [
     description: 'Contém 1 Óleo de Jojoba, 1 Creme de Karité, 1 Lixa de Cristal importada e estojo exclusivo de linho cru.',
     price: 120.00,
     stock: 8,
-    image_url: 'assets/produtos/kit-cuidados.jpg',
+    image_url: 'assets/produtos/kit-cuidados.jpg?v=2',
     is_featured: true,
     is_active: true
   }
@@ -193,7 +193,10 @@ class AppDatabase {
     if (!localStorage.getItem(STORAGE_KEYS.SERVICES)) {
       localStorage.setItem(STORAGE_KEYS.SERVICES, JSON.stringify(DEFAULT_SERVICES));
     }
-    if (!localStorage.getItem(STORAGE_KEYS.PRODUCTS)) {
+    
+    // Atualizar produtos para refletir imagens cosméticas reais e eliminar fotos antigas
+    const existingProducts = localStorage.getItem(STORAGE_KEYS.PRODUCTS);
+    if (!existingProducts || !existingProducts.includes('?v=2')) {
       localStorage.setItem(STORAGE_KEYS.PRODUCTS, JSON.stringify(DEFAULT_PRODUCTS));
     }
     if (!localStorage.getItem(STORAGE_KEYS.BOOKINGS)) {

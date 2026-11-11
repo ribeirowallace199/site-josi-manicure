@@ -2429,13 +2429,19 @@ img {
 /* center */
 .mosaic-tile.center {
   grid-area: center;
+  justify-self: center !important;
+  align-self: center !important;
+  place-self: center !important;
+  margin: auto !important;
   background: linear-gradient(145deg, #2A211D 0%, #1A1412 100%);
   color: #FFFFFF;
   display: grid;
   place-content: center;
   width: var(--mouse-w, 600px);
+  max-width: min(600px, 90vw);
+  max-height: min(600px, 80vh);
   aspect-ratio: 1;
-  translate: var(--center-x, 0px) var(--center-y, 0px);
+  translate: 0 0;
   border-radius: 18px;
   border: 1px solid rgba(212, 175, 55, 0.4);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 40px rgba(194, 166, 118, 0.18);
@@ -2602,8 +2608,11 @@ img {
   }
   .mosaic-tile.center {
     --mouse-w: 300px;
-    --center-x: 0px;
-    --center-y: 0px;
+    justify-self: center !important;
+    align-self: center !important;
+    place-self: center !important;
+    margin: auto !important;
+    translate: 0 0 !important;
     padding: 14px;
   }
 }
@@ -2619,8 +2628,11 @@ img {
   }
   .mosaic-tile.center {
     --mouse-w: 220px;
-    --center-x: 0px;
-    --center-y: 0px;
+    justify-self: center !important;
+    align-self: center !important;
+    place-self: center !important;
+    margin: auto !important;
+    translate: 0 0 !important;
     padding: 10px;
   }
   .mosaic-assembled-pill {

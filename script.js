@@ -960,8 +960,12 @@ function initMosaicGallery() {
         cy = 0;
       }
 
+      center.style.justifySelf = 'center';
+      center.style.alignSelf = 'center';
+      center.style.placeSelf = 'center';
+      center.style.margin = 'auto';
       center.style.width = `${mouseW}px`;
-      center.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+      center.style.transform = 'translate3d(0, 0, 0)';
 
       const hgroup = center.querySelector('hgroup');
       if (hgroup) {
