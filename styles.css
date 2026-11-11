@@ -2273,12 +2273,12 @@ img {
 @property --center-x {
   syntax: "<length>";
   inherits: true;
-  initial-value: -250px;
+  initial-value: 0px;
 }
 @property --center-y {
   syntax: "<length>";
   inherits: true;
-  initial-value: -250px;
+  initial-value: 0px;
 }
 
 .mosaic-gallery-section {
@@ -2435,7 +2435,7 @@ img {
   place-content: center;
   width: var(--mouse-w, 600px);
   aspect-ratio: 1;
-  translate: var(--center-x, -250px) var(--center-y, -250px);
+  translate: var(--center-x, 0px) var(--center-y, 0px);
   border-radius: 18px;
   border: 1px solid rgba(212, 175, 55, 0.4);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 40px rgba(194, 166, 118, 0.18);
@@ -2540,14 +2540,14 @@ img {
   0%,
   5% {
     --mouse-w: 600px;
-    --center-x: -250px;
-    --center-y: -250px;
+    --center-x: 0px;
+    --center-y: 0px;
     --text-opacity: 1;
   }
   20% {
     --mouse-w: 300px;
-    --center-x: -80px;
-    --center-y: -80px;
+    --center-x: 0px;
+    --center-y: 0px;
     --text-opacity: 0;
   }
   25% {
@@ -2556,8 +2556,8 @@ img {
   45%,
   100% {
     --mouse-w: calc(var(--size-base));
-    --center-x: 0;
-    --center-y: 0;
+    --center-x: 0px;
+    --center-y: 0px;
     --text-display: none;
     --mouse-rotate: 180deg;
     --text-opacity: 0;
@@ -2602,8 +2602,8 @@ img {
   }
   .mosaic-tile.center {
     --mouse-w: 300px;
-    --center-x: -90px;
-    --center-y: -90px;
+    --center-x: 0px;
+    --center-y: 0px;
     padding: 14px;
   }
 }
@@ -2619,8 +2619,8 @@ img {
   }
   .mosaic-tile.center {
     --mouse-w: 220px;
-    --center-x: -50px;
-    --center-y: -50px;
+    --center-x: 0px;
+    --center-y: 0px;
     padding: 10px;
   }
   .mosaic-assembled-pill {

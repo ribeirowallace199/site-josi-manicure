@@ -932,16 +932,16 @@ function initMosaicGallery() {
       if (progress < 0.20) {
         const p = Math.max(0, (progress - 0.05) / 0.15);
         mouseW = startW - (startW - midW) * p;
-        cx = -250 * (1 - p) + (-80 * p);
-        cy = -250 * (1 - p) + (-80 * p);
+        cx = 0;
+        cy = 0;
         textOpacity = Math.max(0, 1 - p);
         mouseRotate = 0;
         textDisplay = textOpacity <= 0.05 ? 'none' : 'block';
       } else if (progress < 0.45) {
         const p = (progress - 0.20) / 0.25;
         mouseW = midW - (midW - endW) * p;
-        cx = -80 * (1 - p);
-        cy = -80 * (1 - p);
+        cx = 0;
+        cy = 0;
         textOpacity = 0;
         mouseRotate = 180 * p;
         textDisplay = 'none';
@@ -956,8 +956,8 @@ function initMosaicGallery() {
       }
 
       if (isMobile) {
-        cx *= 0.45;
-        cy *= 0.45;
+        cx = 0;
+        cy = 0;
       }
 
       center.style.width = `${mouseW}px`;
