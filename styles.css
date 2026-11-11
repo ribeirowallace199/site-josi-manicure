@@ -64,11 +64,18 @@ html {
   color: var(--text-main);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  width: 100% !important;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  width: 100% !important;
   min-height: 100vh;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
 }
 
 .container {
@@ -1432,6 +1439,7 @@ img {
   user-select: none;
   cursor: ew-resize;
   background: #2A211D;
+  touch-action: none !important;
 }
 
 /* Badges Fixos Ancorados no Container (Nunca diminuem nem se movem com a barra) */
@@ -1524,6 +1532,7 @@ img {
   flex-direction: column;
   align-items: center;
   pointer-events: none;
+  touch-action: none !important;
 }
 
 .handle-vertical-line {
@@ -2286,7 +2295,9 @@ img {
   background: #15110F;
   padding-top: 36px;
   color: #FFFFFF;
-  overflow: visible;
+  overflow: hidden !important;
+  max-width: 100vw;
+  width: 100%;
 }
 
 .mosaic-gallery-section .section-header .section-tag {
@@ -2310,6 +2321,9 @@ img {
   height: 220vh;
   view-timeline-name: --gallery-scroll-timeline;
   view-timeline-axis: block;
+  overflow: hidden !important;
+  max-width: 100vw;
+  width: 100%;
 }
 
 .mosaic-sticky-viewport {
@@ -2317,10 +2331,11 @@ img {
   top: 0;
   height: 100vh;
   width: 100%;
+  max-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: hidden !important;
   background: radial-gradient(circle at center, #241D1A 0%, #120E0D 100%);
 }
 
@@ -2328,7 +2343,7 @@ img {
   --size-base: 105px;
   --mosaic-gap: 12px;
   width: 95vw;
-  max-width: 1350px;
+  max-width: min(1350px, 100vw);
   height: 78vh;
   max-height: 720px;
   display: grid;
@@ -2590,9 +2605,11 @@ img {
 @media (max-width: 900px) {
   .mosaic-wrapper {
     --size-base: 75px;
-    width: 96vw;
+    width: 92vw;
+    max-width: 100%;
     height: 74vh;
     gap: 8px;
+    overflow: hidden;
   }
   .mosaic-tile.center {
     --mouse-w: 300px;
@@ -2604,11 +2621,16 @@ img {
 @media (max-width: 600px) {
   .mosaic-scroll-track {
     height: 180vh;
+    overflow: hidden !important;
+    max-width: 100vw;
   }
   .mosaic-wrapper {
     --size-base: 50px;
     gap: 5px;
     height: 68vh;
+    width: 92vw;
+    max-width: 100%;
+    overflow: hidden;
   }
   .mosaic-tile.center {
     --mouse-w: 220px;

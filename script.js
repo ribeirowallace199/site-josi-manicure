@@ -792,7 +792,7 @@ function initBeforeAfterSlider() {
     isDragging = false;
   });
 
-  // Touch para Celulares
+  // Touch para Celulares (com bloqueio de arrasto da página)
   container.addEventListener('touchstart', (e) => {
     isDragging = true;
     if (e.touches && e.touches[0]) updateSlider(e.touches[0].clientX);
@@ -800,10 +800,15 @@ function initBeforeAfterSlider() {
 
   window.addEventListener('touchmove', (e) => {
     if (!isDragging) return;
+    if (e.cancelable) e.preventDefault(); // Impede que o gesto mova a tela inteira para os lados
     if (e.touches && e.touches[0]) updateSlider(e.touches[0].clientX);
-  }, { passive: true });
+  }, { passive: false });
 
   window.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+
+  window.addEventListener('touchcancel', () => {
     isDragging = false;
   });
 }
