@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css?v=3.7">
+  <link rel="stylesheet" href="styles.css?v=3.8">
 </head>
 <body>
 
@@ -338,9 +338,14 @@
 
             <!-- 3. Horários Livres Calculados em Tempo Real -->
             <div class="form-group">
-              <label class="form-label">3. Horários Disponíveis:</label>
-              <div class="time-slots-grid" id="timeSlotsContainer">
-                <div class="slots-empty-notice">Selecione uma data para ver os horários livres.</div>
+              <div class="slots-header-line">
+                <label class="form-label" style="margin-bottom: 0;">3. Horários Disponíveis:</label>
+                <span class="slot-selected-badge" id="slotSelectedBadge" style="display: none;">✓ Horário Selecionado</span>
+              </div>
+              <div class="time-slots-container-wrapper">
+                <div class="time-slots-grid" id="timeSlotsContainer">
+                  <div class="slots-empty-notice">Selecione uma data para ver os horários livres.</div>
+                </div>
               </div>
               <input type="hidden" id="selectedTimeValue" required>
             </div>
@@ -391,14 +396,101 @@
     </div>
   </section>
 
+  <!-- Clube Fidelidade Digital (Fidelização de Clientes) -->
+  <section class="section section-bg-soft loyalty-section" id="fidelidade">
+    <div class="container">
+      <div class="loyalty-card-wrapper">
+        <div class="loyalty-badge-top">✦ PROGRAMA EXCLUSIVO DE AUTOCUIDADO</div>
+        <h2 class="loyalty-title">Clube Fidelidade • Josi Manicures</h2>
+        <p class="loyalty-desc">
+          Seu autocuidado recompensado a cada visita. A cada atendimento você carimba um selo digital no ateliê e acumula benefícios especiais.
+        </p>
+
+        <!-- Grade Visual dos 10 Selos -->
+        <div class="loyalty-stamps-grid">
+          <div class="stamp-slot active">
+            <span class="stamp-num">1</span>
+            <span class="stamp-icon">💅</span>
+            <span class="stamp-label">Atendimento</span>
+          </div>
+          <div class="stamp-slot active">
+            <span class="stamp-num">2</span>
+            <span class="stamp-icon">💅</span>
+            <span class="stamp-label">Atendimento</span>
+          </div>
+          <div class="stamp-slot">
+            <span class="stamp-num">3</span>
+            <span class="stamp-icon">💅</span>
+            <span class="stamp-label">Atendimento</span>
+          </div>
+          <div class="stamp-slot">
+            <span class="stamp-num">4</span>
+            <span class="stamp-icon">💅</span>
+            <span class="stamp-label">Atendimento</span>
+          </div>
+          <div class="stamp-slot reward-slot">
+            <span class="stamp-num">5</span>
+            <span class="stamp-icon">🎁</span>
+            <span class="stamp-label">Spa das Mãos Grátis</span>
+          </div>
+          <div class="stamp-slot">
+            <span class="stamp-num">6</span>
+            <span class="stamp-icon">💅</span>
+            <span class="stamp-label">Atendimento</span>
+          </div>
+          <div class="stamp-slot">
+            <span class="stamp-num">7</span>
+            <span class="stamp-icon">💅</span>
+            <span class="stamp-label">Atendimento</span>
+          </div>
+          <div class="stamp-slot">
+            <span class="stamp-num">8</span>
+            <span class="stamp-icon">💅</span>
+            <span class="stamp-label">Atendimento</span>
+          </div>
+          <div class="stamp-slot">
+            <span class="stamp-num">9</span>
+            <span class="stamp-icon">💅</span>
+            <span class="stamp-label">Atendimento</span>
+          </div>
+          <div class="stamp-slot grand-reward-slot">
+            <span class="stamp-num">10</span>
+            <span class="stamp-icon">👑</span>
+            <span class="stamp-label">Manicure 100% Grátis</span>
+          </div>
+        </div>
+
+        <div class="loyalty-footer-callout">
+          <div class="loyalty-rule-item">
+            <span class="loyalty-check-icon">✓</span>
+            <span>Sem necessidade de cartão de papel: seus selos são controlados automaticamente pelo seu WhatsApp.</span>
+          </div>
+          <div class="loyalty-rule-item">
+            <span class="loyalty-check-icon">✓</span>
+            <span>Válido para todos os procedimentos e renovável ilimitadamente a cada 10 visitas!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Seção Galeria Mosaico 3D (Efeito Scroll Reveal com Fotos Reais de Unhas) -->
   <section class="mosaic-gallery-section" id="galeria">
     <div class="container mosaic-intro-container">
-      <div class="section-header" style="margin-bottom: 24px;">
+      <div class="section-header" style="margin-bottom: 20px;">
         <h2 class="section-title">Galeria e Arte</h2>
         <p class="section-subtitle">
           Role a página para ver nossas produções reais se conectando em perfeita simetria.
         </p>
+      </div>
+
+      <!-- Filtro Rápido por Categoria de Nail Art -->
+      <div class="mosaic-filter-pills" id="mosaicFilters">
+        <button type="button" class="mosaic-filter-pill active" data-filter="all">✦ Todas as Inspirações</button>
+        <button type="button" class="mosaic-filter-pill" data-filter="gel">💎 Alongamento & Gel</button>
+        <button type="button" class="mosaic-filter-pill" data-filter="delicadas">✨ Francesinhas & Nude</button>
+        <button type="button" class="mosaic-filter-pill" data-filter="nailart">💅 Nail Art Criativa</button>
+        <button type="button" class="mosaic-filter-pill" data-filter="cores">🍷 Clássicos & Vermelhos</button>
       </div>
     </div>
 
@@ -406,17 +498,21 @@
     <div class="mosaic-scroll-track" id="mosaicTrack">
       <div class="mosaic-sticky-viewport">
         <div class="mosaic-wrapper" id="mosaicWrapper">
-          <div class="mosaic-tile tile-1" style="background-image: url('assets/galeria/unha-9.jpg'); --bg: url('assets/galeria/unha-9.jpg');">
+          <div class="mosaic-tile tile-1" data-category="gel nailart" data-title="Alongamento em Gel com Acabamento Perolado" style="background-image: url('assets/galeria/unha-9.jpg'); --bg: url('assets/galeria/unha-9.jpg');">
             <img src="assets/galeria/unha-9.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+            <span class="tile-category-tag">Gel • Nail Art</span>
           </div>
-          <div class="mosaic-tile tile-2" style="background-image: url('assets/galeria/unha-2.jpg'); --bg: url('assets/galeria/unha-2.jpg');">
+          <div class="mosaic-tile tile-2" data-category="delicadas" data-title="Francesinha Clássica & Linhas Finas" style="background-image: url('assets/galeria/unha-2.jpg'); --bg: url('assets/galeria/unha-2.jpg');">
             <img src="assets/galeria/unha-2.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+            <span class="tile-category-tag">Delicada</span>
           </div>
-          <div class="mosaic-tile tile-3" style="background-image: url('assets/galeria/unha-3.jpg'); --bg: url('assets/galeria/unha-3.jpg');">
+          <div class="mosaic-tile tile-3" data-category="gel" data-title="Banho de Gel Estruturado & Brilho Espelhado" style="background-image: url('assets/galeria/unha-3.jpg'); --bg: url('assets/galeria/unha-3.jpg');">
             <img src="assets/galeria/unha-3.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+            <span class="tile-category-tag">Alongamento</span>
           </div>
-          <div class="mosaic-tile tile-4" style="background-image: url('assets/galeria/unha-4.jpg'); --bg: url('assets/galeria/unha-4.jpg');">
+          <div class="mosaic-tile tile-4" data-category="cores" data-title="Esmaltação Vermelho Rubi Atemporal" style="background-image: url('assets/galeria/unha-4.jpg'); --bg: url('assets/galeria/unha-4.jpg');">
             <img src="assets/galeria/unha-4.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+            <span class="tile-category-tag">Clássico</span>
           </div>
           
           <div class="mosaic-tile center" id="mosaicCenter">
@@ -433,24 +529,46 @@
             </div>
           </div>
 
-          <div class="mosaic-tile tile-5" style="background-image: url('assets/galeria/unha-5.jpg'); --bg: url('assets/galeria/unha-5.jpg');">
+          <div class="mosaic-tile tile-5" data-category="cores" data-title="Tons Quentes & Esmaltação em Gel de Longa Duração" style="background-image: url('assets/galeria/unha-5.jpg'); --bg: url('assets/galeria/unha-5.jpg');">
             <img src="assets/galeria/unha-5.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+            <span class="tile-category-tag">Clássico</span>
           </div>
-          <div class="mosaic-tile tile-6" style="background-image: url('assets/galeria/unha-6.jpg'); --bg: url('assets/galeria/unha-6.jpg');">
+          <div class="mosaic-tile tile-6" data-category="nailart" data-title="Nail Art Geométrica Minimalista" style="background-image: url('assets/galeria/unha-6.jpg'); --bg: url('assets/galeria/unha-6.jpg');">
             <img src="assets/galeria/unha-6.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+            <span class="tile-category-tag">Nail Art</span>
           </div>
-          <div class="mosaic-tile tile-7" style="background-image: url('assets/galeria/unha-7.jpg'); --bg: url('assets/galeria/unha-7.jpg');">
+          <div class="mosaic-tile tile-7" data-category="delicadas" data-title="Nude Translúcido com Cutilagem Russa Suave" style="background-image: url('assets/galeria/unha-7.jpg'); --bg: url('assets/galeria/unha-7.jpg');">
             <img src="assets/galeria/unha-7.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+            <span class="tile-category-tag">Nude</span>
           </div>
-          <div class="mosaic-tile tile-8" style="background-image: url('assets/galeria/unha-8.jpg'); --bg: url('assets/galeria/unha-8.jpg');">
+          <div class="mosaic-tile tile-8" data-category="gel nailart" data-title="Encapsulada com Folhas de Ouro & Gel" style="background-image: url('assets/galeria/unha-8.jpg'); --bg: url('assets/galeria/unha-8.jpg');">
             <img src="assets/galeria/unha-8.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
+            <span class="tile-category-tag">Gel • Ouro</span>
           </div>
         </div>
 
         <!-- Indicador Elegante de Mosaico Montado -->
         <div class="mosaic-assembled-pill" id="mosaicAssembledPill">
           <span class="pill-dot">✦</span>
-          <span>Mosaico completo • Passe o cursor ou toque nas unhas para admirar</span>
+          <span>Mosaico completo • Clique em qualquer unha para ampliar ou agendar</span>
+        </div>
+
+        <!-- Modal Lightbox para Ampliar Fotos da Galeria -->
+        <div class="gallery-lightbox" id="galleryLightbox">
+          <div class="lightbox-overlay" id="lightboxOverlay"></div>
+          <div class="lightbox-dialog">
+            <button type="button" class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Fechar">&times;</button>
+            <div class="lightbox-img-wrap">
+              <img src="" alt="Arte Ungueal Ampliada" id="lightboxImg" class="lightbox-img">
+            </div>
+            <div class="lightbox-info-bar">
+              <div class="lightbox-meta">
+                <span class="lightbox-badge" id="lightboxBadge">Nail Art</span>
+                <h4 class="lightbox-title" id="lightboxTitle">Criação Exclusiva Josi Manicures</h4>
+              </div>
+              <a href="#agendamento" class="btn btn-champagne btn-sm" id="lightboxBookBtn">Agendar Este Estilo</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -603,6 +721,106 @@
     </div>
   </section>
 
+  <!-- Perguntas Frequentes & Segredos de Cuidado (FAQ Accordion) -->
+  <section class="section faq-section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">DÚVIDAS & CUIDADOS</span>
+        <h2 class="section-title">Perguntas Frequentes & Dicas</h2>
+        <p class="section-subtitle">
+          Tudo o que você precisa saber para prolongar a beleza e saúde das suas unhas.
+        </p>
+      </div>
+
+      <div class="faq-accordion-container" id="faqAccordion">
+        <!-- Pergunta 1 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question-btn">
+            <span>Como fazer a esmaltação em gel durar mais de 20 dias?</span>
+            <span class="faq-chevron">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-panel">
+            <p>
+              O segredo para a máxima durabilidade é hidratar a área das cutículas diariamente com óleos nutritivos, usar luvas para tarefas com produtos químicos abrasivos e jamais usar as unhas como alavancas para abrir latas ou raspar superfícies.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 2 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question-btn">
+            <span>Qual o intervalo ideal entre as manutenções de gel ou blindagem?</span>
+            <span class="faq-chevron">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-panel">
+            <p>
+              Recomendamos entre <strong>15 a 21 dias</strong> para manutenção de alongamento e blindagem estruturada. Esse prazo preserva o ponto de tensão e evita infiltrações. Já para manicure tradicional, o retorno semanal é o ideal.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 3 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question-btn">
+            <span>A técnica de cutilagem russa combinada machuca ou afina a unha?</span>
+            <span class="faq-chevron">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-panel">
+            <p>
+              Não! A cutilagem russa combinada utiliza microbrocas diamantadas com granulação suave e alicates de precisão cirúrgica. Não há cortes profundos nem bife, e a lâmina ungueal permanece íntegra, forte e livre de inflamações.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 4 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question-btn">
+            <span>Como funciona a tolerância de horário e política de reagendamento?</span>
+            <span class="faq-chevron">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-panel">
+            <p>
+              Prezamos pela pontualidade de cada cliente. Temos uma tolerância de <strong>15 minutos</strong>. Caso precise remarcar ou cancelar seu horário, basta nos avisar pelo WhatsApp com pelo menos 4 horas de antecedência.
+            </p>
+          </div>
+        </div>
+
+        <!-- Pergunta 5 -->
+        <div class="faq-item">
+          <button type="button" class="faq-question-btn">
+            <span>Quais são as formas de pagamento aceitas no ateliê?</span>
+            <span class="faq-chevron">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer-panel">
+            <p>
+              Aceitamos <strong>Pix instantâneo (com chave e QR Code)</strong>, cartões de crédito e débito das principais bandeiras, além de pagamento em dinheiro.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Atendimento & Contato -->
   <section class="section section-bg-soft" id="contato">
     <div class="container">
@@ -727,6 +945,24 @@
         <strong class="cart-footer-price" id="cartTotalText">R$ 0,00</strong>
       </div>
 
+      <!-- Pagamento Rápido via Pix -->
+      <div class="cart-pix-box" id="cartPixBox">
+        <div class="pix-title-row">
+          <span class="pix-icon-badge">⚡ PIX</span>
+          <strong>Pague Rápido via Pix</strong>
+        </div>
+        <div class="pix-key-preview">
+          <span>Chave (WhatsApp): <strong>(35) 99877-6684</strong></span>
+        </div>
+        <button type="button" class="btn btn-outline btn-sm w-100 btn-copy-pix" id="btnCopyCartPix">
+          <span>Copiar Código Pix Copia e Cola</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+        </button>
+      </div>
+
       <button class="btn btn-champagne w-100" id="btnCheckoutCart">
         Finalizar Pedido via WhatsApp
       </button>
@@ -748,8 +984,23 @@
         </p>
       </div>
 
-      <div style="background: var(--bg-surface-soft); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--nude-border); font-size: 0.9rem; margin-bottom: 24px;" id="bookingSuccessDetails">
+      <div style="background: var(--bg-surface-soft); padding: 18px; border-radius: var(--radius-sm); border: 1px solid var(--nude-border); font-size: 0.9rem; margin-bottom: 20px;" id="bookingSuccessDetails">
         <!-- Detalhes preenchidos via JS -->
+      </div>
+
+      <!-- Pagamento Pix Opcional no Agendamento -->
+      <div class="booking-pix-banner" id="bookingPixBanner">
+        <div class="pix-banner-header">
+          <span class="pix-icon-badge">⚡ PIX</span>
+          <span>Deseja antecipar via Pix? Chave (35) 99877-6684</span>
+        </div>
+        <button type="button" class="btn-copy-pix-booking" id="btnCopyBookingPix">
+          <span>Copiar Chave Pix</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+        </button>
       </div>
 
       <a href="#" id="sendWhatsAppConfirmationBtn" target="_blank" class="btn btn-champagne w-100 btn-large">
@@ -770,6 +1021,6 @@
 
   <!-- Carregamento da Camada de Dados e Lógica do Cliente -->
   <script src="supabase-client.js"></script>
-  <script src="script.js?v=3.7"></script>
+  <script src="script.js?v=3.8"></script>
 </body>
 </html>

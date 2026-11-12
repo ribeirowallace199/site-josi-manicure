@@ -28,10 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. Inicializar Slider Antes & Depois
   initBeforeAfterSlider();
 
-  // 7. Inicializar Galeria Mosaico 3D Scroll Reveal
+  // 7. Inicializar Galeria Mosaico 3D Scroll Reveal & Filtros/Lightbox
   initMosaicGallery();
+  initGalleryFiltersAndLightbox();
 
-  // 8. Menu Mobile
+  // 8. Inicializar FAQ Accordion
+  initFaqAccordion();
+
+  // 9. Inicializar Pagamento Pix Copia e Cola
+  initPixFeatures();
+
+  // 10. Menu Mobile
   initMobileMenu();
 });
 
@@ -349,7 +356,8 @@ function initBookingSystem() {
 
     const partialBlocks = blocks.filter(b => b.block_date === dateString && !b.all_day);
 
-    let html = '';
+    let morningHtml = '';
+    let afternoonHtml = '';
     let currentMin = startMinutes;
     let slotCount = 0;
 
@@ -375,30 +383,49 @@ function initBookingSystem() {
 
       const isOccupied = isBooked || isBlocked;
 
-      html += `
+      const btnHtml = `
         <button type="button" 
                 class="time-slot-btn ${isOccupied ? 'occupied' : ''}" 
                 data-time="${timeStr}" 
                 ${isOccupied ? 'disabled' : ''}
-                title="${isOccupied ? 'Horário já reservado ou indisponível' : 'Clique para selecionar'}">
+                title="${isOccupied ? 'Horário já reservado ou indisponível' : 'Horário livre • Clique para selecionar'}">
           ${timeStr}
           ${isOccupied ? ' ✕' : ''}
         </button>
       `;
 
+      if (currentMin < 12 * 60) {
+        morningHtml += btnHtml;
+      } else {
+        afternoonHtml += btnHtml;
+      }
+
       slotCount++;
       currentMin += slotDuration;
     }
 
-    timeSlotsContainer.innerHTML = html;
-    if (dayStatusNotice) dayStatusNotice.textContent = `Horários de atendimento das ${settings.opening_time} às ${settings.closing_time}.`;
+    let finalHtml = '';
+    if (morningHtml) {
+      finalHtml += `<div class="slot-period-header">🌅 Manhã</div>` + morningHtml;
+    }
+    if (afternoonHtml) {
+      finalHtml += `<div class="slot-period-header">🌇 Tarde</div>` + afternoonHtml;
+    }
 
-    // Eventos de clique nos slots
+    timeSlotsContainer.innerHTML = finalHtml || '<div class="slots-empty-notice">Nenhum horário disponível para esta data.</div>';
+    if (dayStatusNotice) dayStatusNotice.textContent = `Atendimento das ${settings.opening_time} às ${settings.closing_time} • Selecione o melhor horário abaixo:`;
+
+    // Eventos de clique nos slots com feedback visual imediato
+    const slotBadge = document.getElementById('slotSelectedBadge');
     document.querySelectorAll('.time-slot-btn:not(:disabled)').forEach(btn => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('.time-slot-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         selectedTimeValue.value = btn.getAttribute('data-time');
+        if (slotBadge) {
+          slotBadge.textContent = `✓ Horário: ${selectedTimeValue.value}`;
+          slotBadge.style.display = 'inline-block';
+        }
         refreshSummary();
       });
     });
@@ -408,9 +435,16 @@ function initBookingSystem() {
       const activeBtn = document.querySelector(`.time-slot-btn[data-time="${selectedTimeValue.value}"]:not(:disabled)`);
       if (activeBtn) {
         activeBtn.classList.add('active');
+        if (slotBadge) {
+          slotBadge.textContent = `✓ Horário: ${selectedTimeValue.value}`;
+          slotBadge.style.display = 'inline-block';
+        }
       } else {
         selectedTimeValue.value = '';
+        if (slotBadge) slotBadge.style.display = 'none';
       }
+    } else {
+      if (slotBadge) slotBadge.style.display = 'none';
     }
   }
 
@@ -984,4 +1018,152 @@ function initMosaicGallery() {
   window.addEventListener('resize', requestScrollUpdate, { passive: true });
   window.addEventListener('touchmove', requestScrollUpdate, { passive: true });
   updateMosaic();
+}
+
+// ============================================================
+// 9. FILTROS DA GALERIA & LIGHTBOX DE AMPLIAÇÃO
+// ============================================================
+function initGalleryFiltersAndLightbox() {
+  const filterBtns = document.querySelectorAll('.mosaic-filter-pill');
+  const tiles = document.querySelectorAll('.mosaic-wrapper .mosaic-tile:not(.center)');
+  const lightbox = document.getElementById('galleryLightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxTitle = document.getElementById('lightboxTitle');
+  const lightboxBadge = document.getElementById('lightboxBadge');
+  const lightboxCloseBtn = document.getElementById('lightboxCloseBtn');
+  const lightboxOverlay = document.getElementById('lightboxOverlay');
+  const lightboxBookBtn = document.getElementById('lightboxBookBtn');
+
+  // Filtros por Categoria
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      tiles.forEach(tile => {
+        const cat = tile.getAttribute('data-category') || '';
+        if (filter === 'all' || cat.includes(filter)) {
+          tile.classList.remove('dimmed');
+          tile.classList.add('highlighted');
+          setTimeout(() => tile.classList.remove('highlighted'), 1200);
+        } else {
+          tile.classList.add('dimmed');
+          tile.classList.remove('highlighted');
+        }
+      });
+    });
+  });
+
+  // Lightbox ao clicar nas fotos
+  tiles.forEach(tile => {
+    tile.addEventListener('click', () => {
+      const img = tile.querySelector('.mosaic-tile-img');
+      const imgSrc = img ? img.getAttribute('src') : (tile.style.backgroundImage || '').replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
+      const title = tile.getAttribute('data-title') || 'Criação Exclusiva Josi Manicures';
+      const cat = tile.querySelector('.tile-category-tag')?.textContent || 'Nail Design';
+
+      if (lightbox && lightboxImg) {
+        lightboxImg.src = imgSrc;
+        if (lightboxTitle) lightboxTitle.textContent = title;
+        if (lightboxBadge) lightboxBadge.textContent = cat;
+        lightbox.classList.add('show');
+      }
+    });
+  });
+
+  function closeLightbox() {
+    if (lightbox) lightbox.classList.remove('show');
+  }
+
+  if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+  if (lightboxOverlay) lightboxOverlay.addEventListener('click', closeLightbox);
+  if (lightboxBookBtn) {
+    lightboxBookBtn.addEventListener('click', () => {
+      closeLightbox();
+      const bookingSec = document.getElementById('agendamento');
+      if (bookingSec) bookingSec.scrollIntoView({ behavior: 'smooth' });
+    });
+  }
+}
+
+// ============================================================
+// 10. FAQ ACCORDION (DICAS & CUIDADOS)
+// ============================================================
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const btn = item.querySelector('.faq-question-btn');
+    const panel = item.querySelector('.faq-answer-panel');
+    if (!btn || !panel) return;
+
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      // Fechar outros itens abertos
+      faqItems.forEach(other => {
+        if (other !== item) {
+          other.classList.remove('open');
+          const p = other.querySelector('.faq-answer-panel');
+          if (p) p.style.maxHeight = null;
+        }
+      });
+
+      if (isOpen) {
+        item.classList.remove('open');
+        panel.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+}
+
+// ============================================================
+// 11. PIX COPIA E COLA & PAGAMENTO RÁPIDO
+// ============================================================
+function initPixFeatures() {
+  const copyCartPixBtn = document.getElementById('btnCopyCartPix');
+  const copyBookingPixBtn = document.getElementById('btnCopyBookingPix');
+
+  function copyToClipboard(text, successMsg) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        showAppToast(successMsg);
+      }).catch(() => {
+        fallbackCopy(text, successMsg);
+      });
+    } else {
+      fallbackCopy(text, successMsg);
+    }
+  }
+
+  function fallbackCopy(text, successMsg) {
+    const tempInput = document.createElement('textarea');
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    showAppToast(successMsg);
+  }
+
+  // Chave Pix Oficial / Código Pix Copia e Cola
+  const PIX_KEY = '5535998776684';
+  const PIX_COPIA_E_COLA = '00020126580014BR.GOV.BCB.PIX0136josiane.manicure.pix@banco.com520400005303986540500.005802BR5915JOSIANE ARANHA6009POUSO ALTO62070503***6304E2D1';
+
+  if (copyCartPixBtn) {
+    copyCartPixBtn.addEventListener('click', () => {
+      copyToClipboard(PIX_COPIA_E_COLA, 'Código Pix Copia e Cola copiado! Abra o app do seu banco para pagar.');
+    });
+  }
+
+  if (copyBookingPixBtn) {
+    copyBookingPixBtn.addEventListener('click', () => {
+      copyToClipboard(PIX_KEY, 'Chave Pix (WhatsApp) copiada: (35) 99877-6684!');
+    });
+  }
 }

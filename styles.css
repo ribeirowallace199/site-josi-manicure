@@ -2738,3 +2738,543 @@ img {
     gap: 24px !important;
   }
 }
+
+/* ============================================================
+   UPGRADES: GRADE DE HORÁRIOS VISUAL & STATUS
+   ============================================================ */
+.slots-header-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.slot-selected-badge {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #2F633E;
+  background: #E8F4EC;
+  border: 1px solid #B4DFBF;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.02em;
+}
+
+.slot-period-header {
+  grid-column: 1 / -1;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  padding: 6px 0 2px;
+  border-bottom: 1px solid var(--nude-border);
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ============================================================
+   CLUBE FIDELIDADE DIGITAL
+   ============================================================ */
+.loyalty-section {
+  padding: 44px 0 48px;
+}
+
+.loyalty-card-wrapper {
+  background: var(--bg-surface);
+  border: 1px solid rgba(194, 166, 118, 0.45);
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
+  box-shadow: 0 12px 35px rgba(51, 43, 37, 0.07);
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.loyalty-badge-top {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--accent-gold);
+  background: rgba(194, 166, 118, 0.12);
+  border: 1px solid rgba(194, 166, 118, 0.35);
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 12px;
+}
+
+.loyalty-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  color: var(--text-title);
+  margin-bottom: 10px;
+}
+
+.loyalty-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0 auto 28px;
+  line-height: 1.6;
+}
+
+.loyalty-stamps-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stamp-slot {
+  background: var(--bg-surface-soft);
+  border: 1.5px dashed var(--nude-border-dark);
+  border-radius: var(--radius-md);
+  padding: 14px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 96px;
+  transition: var(--transition);
+}
+
+.stamp-slot.active {
+  background: #FFFBF5;
+  border-style: solid;
+  border-color: var(--accent-gold);
+  box-shadow: 0 4px 14px rgba(179, 149, 99, 0.18);
+}
+
+.stamp-num {
+  font-size: 0.70rem;
+  font-weight: 700;
+  color: var(--text-light);
+}
+
+.stamp-icon {
+  font-size: 1.4rem;
+}
+
+.stamp-label {
+  font-size: 0.70rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.stamp-slot.reward-slot {
+  background: linear-gradient(135deg, #FAF3E8 0%, #F5E8D3 100%);
+  border: 1.5px solid var(--accent-gold);
+}
+
+.stamp-slot.reward-slot .stamp-label {
+  color: #8C6A2E;
+  font-weight: 700;
+}
+
+.stamp-slot.grand-reward-slot {
+  background: linear-gradient(135deg, #2B231D 0%, #17120F 100%);
+  color: #FFFFFF;
+  border: 1.5px solid var(--champagne);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.stamp-slot.grand-reward-slot .stamp-num {
+  color: var(--champagne);
+}
+
+.stamp-slot.grand-reward-slot .stamp-label {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.loyalty-footer-callout {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--bg-surface-soft);
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--nude-border);
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  text-align: left;
+}
+
+.loyalty-rule-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.loyalty-check-icon {
+  color: var(--accent-gold);
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .loyalty-stamps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .loyalty-card-wrapper {
+    padding: 24px 16px;
+  }
+}
+
+/* ============================================================
+   FILTROS DE CATEGORIA DA GALERIA & LIGHTBOX
+   ============================================================ */
+.mosaic-filter-pills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.mosaic-filter-pill {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #E6DDD5;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 0.80rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.02em;
+}
+
+.mosaic-filter-pill:hover {
+  background: rgba(194, 166, 118, 0.25);
+  border-color: var(--champagne);
+  color: #FFFFFF;
+}
+
+.mosaic-filter-pill.active {
+  background: var(--champagne);
+  border-color: var(--champagne);
+  color: #1A1412;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(194, 166, 118, 0.35);
+}
+
+.mosaic-tile.dimmed {
+  opacity: 0.25;
+  filter: grayscale(80%) brightness(0.5);
+  pointer-events: none;
+}
+
+.mosaic-tile.highlighted {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.85), 0 10px 30px rgba(0, 0, 0, 0.8);
+  border-color: rgba(212, 175, 55, 0.95);
+  z-index: 12;
+}
+
+.tile-category-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(26, 20, 18, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  color: #FAF5F0;
+  font-size: 0.62rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+  z-index: 5;
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  letter-spacing: 0.04em;
+}
+
+/* Lightbox Modal */
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-lightbox.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.gallery-lightbox .lightbox-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(18, 14, 13, 0.92);
+  backdrop-filter: blur(8px);
+}
+
+.gallery-lightbox .lightbox-dialog {
+  position: relative;
+  z-index: 2;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: #201915;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+  font-size: 1.5rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.lightbox-close-btn:hover {
+  background: var(--accent-gold);
+}
+
+.lightbox-img-wrap {
+  max-width: 620px;
+  max-height: 60vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #110E0C;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+.lightbox-info-bar {
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: #241D1A;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lightbox-badge {
+  font-size: 0.70rem;
+  color: var(--champagne);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 600;
+  display: block;
+}
+
+.lightbox-title {
+  color: #FFFFFF;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  margin: 3px 0 0;
+}
+
+/* ============================================================
+   FAQ ACCORDION
+   ============================================================ */
+.faq-section {
+  padding: 48px 0;
+  background: var(--bg-surface);
+}
+
+.faq-accordion-container {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faq-item {
+  background: var(--bg-surface-soft);
+  border: 1px solid var(--nude-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: 0 4px 14px rgba(51, 43, 37, 0.04);
+}
+
+.faq-item:hover {
+  border-color: var(--nude-border-dark);
+}
+
+.faq-item.open {
+  border-color: var(--accent-gold);
+  background: #FFFFFF;
+  box-shadow: 0 8px 24px rgba(179, 149, 99, 0.12);
+}
+
+.faq-question-btn {
+  width: 100%;
+  padding: 20px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: transparent;
+  border: none;
+  font-size: 0.96rem;
+  font-weight: 600;
+  color: var(--text-title);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-sans);
+}
+
+.faq-chevron {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-surface-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-gold);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.faq-item.open .faq-chevron {
+  transform: rotate(180deg);
+  background: var(--accent-gold);
+  color: #FFFFFF;
+}
+
+.faq-answer-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.faq-answer-panel p {
+  padding: 0 22px 20px;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ============================================================
+   PIX COPIA E COLA
+   ============================================================ */
+.cart-pix-box {
+  background: var(--bg-surface-soft);
+  border: 1px dashed var(--accent-gold);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+
+.pix-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  color: var(--text-title);
+  margin-bottom: 6px;
+}
+
+.pix-icon-badge {
+  background: #00BFA5;
+  color: #FFFFFF;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+
+.pix-key-preview {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.btn-copy-pix {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  padding: 7px 12px;
+  border-color: var(--accent-gold);
+  color: var(--text-main);
+  background: #FFFFFF;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+}
+
+.btn-copy-pix:hover {
+  background: var(--bg-surface-tint);
+}
+
+.booking-pix-banner {
+  background: var(--bg-surface-soft);
+  border: 1px solid var(--nude-border-dark);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.pix-banner-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.80rem;
+  color: var(--text-title);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.btn-copy-pix-booking {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #FFFFFF;
+  border: 1px solid var(--accent-gold);
+  color: var(--text-title);
+  padding: 7px 14px;
+  border-radius: var(--radius-xs);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn-copy-pix-booking:hover {
+  background: var(--accent-gold);
+  color: #FFFFFF;
+}
