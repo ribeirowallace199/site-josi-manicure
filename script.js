@@ -907,16 +907,14 @@ function initMosaicGallery() {
 
   function updateMosaic() {
     const rect = track.getBoundingClientRect();
-    const windowH = window.innerHeight;
-    const totalDist = rect.height - windowH;
+    const stickyEl = track.querySelector('.mosaic-sticky-viewport');
+    const isMobile = window.innerWidth <= 600;
+    const topOffset = isMobile ? 52 : 65;
+    const stickyH = stickyEl ? stickyEl.offsetHeight : 480;
+    const totalDist = Math.max(120, rect.height - stickyH);
 
-    if (totalDist <= 0) {
-      isTicking = false;
-      return;
-    }
-
-    // Calcular progresso de rolagem de 0.0 (aberto) a 1.0 (fechado)
-    let progress = (-rect.top) / totalDist;
+    // Calcular progresso de rolagem de 0.0 (aberto) a 1.0 (fechado) sincronizado com a fixação
+    let progress = (topOffset - rect.top) / totalDist;
     progress = Math.max(0, Math.min(1, progress));
 
     // Fator de aproximação das caixas:
