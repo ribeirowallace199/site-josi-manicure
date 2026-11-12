@@ -886,14 +886,14 @@ function initMosaicGallery() {
     progress = Math.max(0, Math.min(1, progress));
 
     // Fator de aproximação das caixas:
-    // 0% a 5%: início afastado com card central visível (boxFactor = 1)
-    // 5% a 65%: fecha de forma dinâmica, fluida e ágil (boxFactor vai de 1 a 0)
-    // 65% a 100%: TOTALMENTE MONTADO (boxFactor = 0)
+    // 0% a 2%: início aberto com card central destacado (boxFactor = 1)
+    // 2% a 88%: fecha de forma dinâmica, contínua e sem tempo ocioso (boxFactor vai de 1 a 0)
+    // 88% a 100%: mosaico fechado e transição imediata para a próxima seção
     let boxFactor;
-    if (progress <= 0.05) {
+    if (progress <= 0.02) {
       boxFactor = 1;
-    } else if (progress <= 0.65) {
-      boxFactor = (0.65 - progress) / (0.65 - 0.05);
+    } else if (progress <= 0.88) {
+      boxFactor = (0.88 - progress) / (0.88 - 0.02);
     } else {
       boxFactor = 0;
     }
@@ -916,7 +916,7 @@ function initMosaicGallery() {
     // Indicador elegante de Mosaico Montado
     const assembledPill = document.getElementById('mosaicAssembledPill');
     if (assembledPill) {
-      if (progress >= 0.65 && progress <= 1.0) {
+      if (progress >= 0.82 && progress <= 1.0) {
         assembledPill.classList.add('show');
       } else {
         assembledPill.classList.remove('show');
@@ -933,14 +933,14 @@ function initMosaicGallery() {
 
       let mouseW, textOpacity, mouseRotate, textDisplay;
 
-      if (progress < 0.25) {
-        const p = Math.max(0, (progress - 0.05) / 0.20);
+      if (progress < 0.35) {
+        const p = Math.max(0, (progress - 0.02) / 0.33);
         mouseW = startW - (startW - midW) * p;
-        textOpacity = Math.max(0, 1 - p * 1.5);
+        textOpacity = Math.max(0, 1 - p * 1.4);
         mouseRotate = 0;
         textDisplay = textOpacity <= 0.05 ? 'none' : 'block';
-      } else if (progress < 0.65) {
-        const p = (progress - 0.25) / 0.40;
+      } else if (progress < 0.88) {
+        const p = (progress - 0.35) / 0.53;
         mouseW = midW - (midW - endW) * p;
         textOpacity = 0;
         mouseRotate = 180 * p;
