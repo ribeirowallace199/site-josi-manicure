@@ -849,15 +849,139 @@ function showAppToast(message, icon = '✓') {
 }
 
 // ============================================================
-// 8. GALERIA MOSAICO COMPACTA & ELEGANTE (FOTOS REAIS DE UNHAS)
+// 8. GALERIA MOSAICO 3D DINÂMICA - ABRE E FECHA NO SCROLL
 // ============================================================
 function initMosaicGallery() {
+  const track = document.getElementById('mosaicTrack');
   const wrapper = document.getElementById('mosaicWrapper');
-  if (!wrapper) return;
+  const center = document.getElementById('mosaicCenter');
+  if (!track || !wrapper) return;
 
-  const tiles = wrapper.querySelectorAll('.mosaic-tile');
-  tiles.forEach(tile => {
-    tile.classList.add('assembled');
-    tile.style.transform = 'none';
-  });
+  const tiles = wrapper.querySelectorAll('.mosaic-tile:not(.center)');
+  const tileOffsets = [
+    { x: -30, y: -20 }, // tile-1 (one)
+    { x: 0,   y: -25 }, // tile-2 (two)
+    { x: 25,  y: -15 }, // tile-3 (three)
+    { x: 30,  y: -20 }, // tile-4 (four)
+    { x: -30, y: 20 },  // tile-5 (five)
+    { x: -25, y: 0 },   // tile-6 (six)
+    { x: 0,   y: 25 },  // tile-7 (seven)
+    { x: 30,  y: 20 }   // tile-8 (eight)
+  ];
+
+  let isTicking = false;
+
+  function updateMosaic() {
+    const rect = track.getBoundingClientRect();
+    const windowH = window.innerHeight;
+    const totalDist = rect.height - windowH;
+
+    if (totalDist <= 0) {
+      isTicking = false;
+      return;
+    }
+
+    // Calcular progresso de rolagem de 0.0 (aberto) a 1.0 (fechado)
+    let progress = (-rect.top) / totalDist;
+    progress = Math.max(0, Math.min(1, progress));
+
+    // Fator de aproximação das caixas:
+    // 0% a 5%: início afastado com card central visível (boxFactor = 1)
+    // 5% a 65%: fecha de forma dinâmica, fluida e ágil (boxFactor vai de 1 a 0)
+    // 65% a 100%: TOTALMENTE MONTADO (boxFactor = 0)
+    let boxFactor;
+    if (progress <= 0.05) {
+      boxFactor = 1;
+    } else if (progress <= 0.65) {
+      boxFactor = (0.65 - progress) / (0.65 - 0.05);
+    } else {
+      boxFactor = 0;
+    }
+    boxFactor = Math.max(0, Math.min(1, boxFactor));
+
+    // Mover os 8 quadros de unhas dinamicamente (abrir e fechar)
+    tiles.forEach((tile, index) => {
+      const offset = tileOffsets[index] || { x: 0, y: 0 };
+      const curX = offset.x * boxFactor;
+      const curY = offset.y * boxFactor;
+      tile.style.transform = `translate3d(${curX}%, ${curY}%, 0)`;
+
+      if (boxFactor === 0) {
+        tile.classList.add('assembled');
+      } else {
+        tile.classList.remove('assembled');
+      }
+    });
+
+    // Indicador elegante de Mosaico Montado
+    const assembledPill = document.getElementById('mosaicAssembledPill');
+    if (assembledPill) {
+      if (progress >= 0.65 && progress <= 1.0) {
+        assembledPill.classList.add('show');
+      } else {
+        assembledPill.classList.remove('show');
+      }
+    }
+
+    // Controlar transformação fluida do card central (.center)
+    if (center) {
+      const isMobile = window.innerWidth <= 600;
+      const isTablet = window.innerWidth <= 900;
+      const endW = isMobile ? 50 : (isTablet ? 75 : 105);
+      const startW = isMobile ? Math.min(window.innerWidth * 0.88, 300) : (isTablet ? 420 : 560);
+      const midW = isMobile ? Math.min(window.innerWidth * 0.70, 200) : (isTablet ? 220 : 270);
+
+      let mouseW, textOpacity, mouseRotate, textDisplay;
+
+      if (progress < 0.25) {
+        const p = Math.max(0, (progress - 0.05) / 0.20);
+        mouseW = startW - (startW - midW) * p;
+        textOpacity = Math.max(0, 1 - p * 1.5);
+        mouseRotate = 0;
+        textDisplay = textOpacity <= 0.05 ? 'none' : 'block';
+      } else if (progress < 0.65) {
+        const p = (progress - 0.25) / 0.40;
+        mouseW = midW - (midW - endW) * p;
+        textOpacity = 0;
+        mouseRotate = 180 * p;
+        textDisplay = 'none';
+      } else {
+        mouseW = endW;
+        textOpacity = 0;
+        mouseRotate = 180;
+        textDisplay = 'none';
+      }
+
+      // Centralização geométrica perfeita através do grid (justify-self & align-self center)
+      center.style.width = `${mouseW}px`;
+      center.style.height = `${mouseW}px`;
+      center.style.transform = 'none';
+
+      const hgroup = center.querySelector('hgroup');
+      if (hgroup) {
+        hgroup.style.opacity = textOpacity;
+        hgroup.style.display = textDisplay;
+      }
+
+      const mouseIcon = center.querySelector('.mouse');
+      if (mouseIcon) {
+        mouseIcon.style.transform = `translate(-50%, 50%) rotate(${mouseRotate}deg)`;
+        mouseIcon.style.opacity = progress >= 0.60 ? '0' : '1';
+      }
+    }
+
+    isTicking = false;
+  }
+
+  function requestScrollUpdate() {
+    if (!isTicking) {
+      window.requestAnimationFrame(updateMosaic);
+      isTicking = true;
+    }
+  }
+
+  window.addEventListener('scroll', requestScrollUpdate, { passive: true });
+  window.addEventListener('resize', requestScrollUpdate, { passive: true });
+  window.addEventListener('touchmove', requestScrollUpdate, { passive: true });
+  updateMosaic();
 }

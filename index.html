@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=3.6">
 </head>
 <body>
 
@@ -420,9 +420,17 @@
           </div>
           
           <div class="mosaic-tile center" id="mosaicCenter">
-            <span class="mosaic-center-badge">ARTE</span>
-            <h3 class="mosaic-center-brand">Josi</h3>
-            <span class="mosaic-center-sub">Manicures</span>
+            <hgroup>
+              <span class="mosaic-center-badge">GALERIA E ARTE</span>
+              <h3 class="mosaic-center-brand">Josi Manicures</h3>
+              <p class="mosaic-center-sub">Criações e acabamentos impecáveis</p>
+            </hgroup>
+            <div class="mouse">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="6" y="3" width="12" height="18" rx="6"></rect>
+                <line x1="12" y1="7" x2="12" y2="11"></line>
+              </svg>
+            </div>
           </div>
 
           <div class="mosaic-tile tile-5" style="background-image: url('assets/galeria/unha-5.jpg'); --bg: url('assets/galeria/unha-5.jpg');">
@@ -437,6 +445,12 @@
           <div class="mosaic-tile tile-8" style="background-image: url('assets/galeria/unha-8.jpg'); --bg: url('assets/galeria/unha-8.jpg');">
             <img src="assets/galeria/unha-8.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
           </div>
+        </div>
+
+        <!-- Indicador Elegante de Mosaico Montado -->
+        <div class="mosaic-assembled-pill" id="mosaicAssembledPill">
+          <span class="pill-dot">✦</span>
+          <span>Mosaico completo • Passe o cursor ou toque nas unhas para admirar</span>
         </div>
       </div>
     </div>
@@ -652,42 +666,28 @@
     </div>
   </section>
 
-  <!-- Rodapé -->
+  <!-- Rodapé Ultracompacto e Fino (Barra Marrom Achatada) -->
   <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <h3 id="footerBrandTitle">Josi Manicures</h3>
-        <p class="footer-bio">
+    <div class="container footer-compact-container">
+      <div class="footer-compact-brand-box">
+        <h3 id="footerBrandTitle" class="footer-compact-title">Josi Manicures</h3>
+        <p class="footer-compact-bio">
           Cuidado especializado, saúde das unhas e momentos de acolhimento e renovação. Cosméticos selecionados para a sua rotina de autocuidado diário.
         </p>
       </div>
 
-      <div class="footer-col">
-        <h4>Navegação</h4>
+      <nav class="footer-compact-links" aria-label="Navegação Rápida">
         <a href="#home">Início</a>
+        <span class="footer-link-dot">•</span>
         <a href="#agendamento">Agendamentos</a>
+        <span class="footer-link-dot">•</span>
         <a href="https://wa.me/5535998776684" target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+        <span class="footer-link-dot">•</span>
         <a href="https://www.instagram.com/josiane_aranha_91?utm_source=ig_web_button_share_sheet&vrfl=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Instagram</a>
-      </div>
+      </nav>
 
-      <div class="footer-col">
-        <h4>Profissional</h4>
-        <a href="admin.html">Painel Administrativo</a>
-        <a href="#contato">Localização</a>
-        <a href="#agendamento">Regras de Horários</a>
-        <a href="https://wa.me/5535998776684" target="_blank" rel="noopener noreferrer">Falar no WhatsApp ((35) 99877-6684)</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Redes Sociais</h4>
-        <a href="https://www.instagram.com/josiane_aranha_91?utm_source=ig_web_button_share_sheet&vrfl=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">Instagram (@josiane_aranha_91)</a>
-        <a href="https://wa.me/5535998776684" target="_blank" rel="noopener noreferrer">WhatsApp Ateliê</a>
-      </div>
-    </div>
-
-    <div class="footer-bottom-bar">
-      <div class="container">
-        <p>&copy; 2026 <span id="copyrightBrandName">Josi Manicures</span>. Todos os direitos reservados. Plataforma desenvolvida com carinho e precisão.</p>
+      <div class="footer-compact-copy">
+        <p>&copy; 2026 <span id="copyrightBrandName">Josi Manicures</span>. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
@@ -770,6 +770,6 @@
 
   <!-- Carregamento da Camada de Dados e Lógica do Cliente -->
   <script src="supabase-client.js"></script>
-  <script src="script.js"></script>
+  <script src="script.js?v=3.6"></script>
 </body>
 </html>
