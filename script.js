@@ -886,15 +886,15 @@ function initMosaicGallery() {
     progress = Math.max(0, Math.min(1, progress));
 
     // Fator de aproximação das caixas:
-    // 0% a 5%: início afastado com card central visível (boxFactor = 1)
-    // 5% a 75%: fecha de forma ágil, fluida e contínua (boxFactor vai de 1 a 0)
-    // 75% a 100%: TOTALMENTE MONTADO (boxFactor = 0)
-    // Transição imediata e natural para a seção seguinte, sem vácuo ou tela marrom estéril!
+    // 0% a 3%: início afastado com card central visível (boxFactor = 1)
+    // 3% a 50%: fecha de forma rápida, fluida e ágil (boxFactor vai de 1 a 0)
+    // 50% a 100%: TOTALMENTE MONTADO (boxFactor = 0)
+    // Sem arrasto excessivo, rolagem leve e transição imediata para a próxima seção!
     let boxFactor;
-    if (progress <= 0.05) {
+    if (progress <= 0.03) {
       boxFactor = 1;
-    } else if (progress <= 0.75) {
-      boxFactor = (0.75 - progress) / (0.75 - 0.05);
+    } else if (progress <= 0.50) {
+      boxFactor = (0.50 - progress) / (0.50 - 0.03);
     } else {
       boxFactor = 0; // Totalmente montado!
     }
@@ -918,7 +918,7 @@ function initMosaicGallery() {
     // Indicador elegante de Mosaico Montado
     const assembledPill = document.getElementById('mosaicAssembledPill');
     if (assembledPill) {
-      if (progress >= 0.75 && progress <= 1.0) {
+      if (progress >= 0.50 && progress <= 1.0) {
         assembledPill.classList.add('show');
       } else {
         assembledPill.classList.remove('show');
@@ -929,20 +929,20 @@ function initMosaicGallery() {
     if (center) {
       const isMobile = window.innerWidth <= 600;
       const isTablet = window.innerWidth <= 900;
-      const endW = isMobile ? 50 : (isTablet ? 75 : 105);
-      const startW = isMobile ? Math.min(window.innerWidth * 0.88, 300) : (isTablet ? 420 : 560);
-      const midW = isMobile ? Math.min(window.innerWidth * 0.65, 180) : (isTablet ? 220 : 270);
+      const endW = isMobile ? 42 : (isTablet ? 65 : 88);
+      const startW = isMobile ? Math.min(window.innerWidth * 0.82, 190) : (isTablet ? 260 : 440);
+      const midW = isMobile ? Math.min(window.innerWidth * 0.55, 120) : (isTablet ? 160 : 220);
 
       let mouseW, textOpacity, mouseRotate, textDisplay;
 
-      if (progress < 0.35) {
-        const p = Math.max(0, (progress - 0.05) / 0.30);
+      if (progress < 0.25) {
+        const p = Math.max(0, (progress - 0.03) / 0.22);
         mouseW = startW - (startW - midW) * p;
         textOpacity = Math.max(0, 1 - p * 1.5);
         mouseRotate = 0;
         textDisplay = textOpacity <= 0.05 ? 'none' : 'block';
-      } else if (progress < 0.75) {
-        const p = (progress - 0.35) / 0.40;
+      } else if (progress < 0.50) {
+        const p = (progress - 0.25) / 0.25;
         mouseW = midW - (midW - endW) * p;
         textOpacity = 0;
         mouseRotate = 180 * p;
@@ -969,7 +969,7 @@ function initMosaicGallery() {
       const mouseIcon = center.querySelector('.mouse');
       if (mouseIcon) {
         mouseIcon.style.transform = `translate(-50%, 50%) rotate(${mouseRotate}deg)`;
-        mouseIcon.style.opacity = progress >= 0.70 ? '0' : '1';
+        mouseIcon.style.opacity = progress >= 0.50 ? '0' : '1';
       }
     }
 
