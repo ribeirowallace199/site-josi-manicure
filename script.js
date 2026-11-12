@@ -886,15 +886,15 @@ function initMosaicGallery() {
     progress = Math.max(0, Math.min(1, progress));
 
     // Fator de aproximação das caixas:
-    // 0% a 5%: início afastado (boxFactor = 1)
-    // 5% a 45%: fecha de forma ágil e suave (boxFactor vai de 1 a 0)
-    // 45% a 100%: TOTALMENTE FECHADO e ESTÁVEL (boxFactor = 0)
-    // Dá o tempo ideal para admirar todas as fotos sem exigir rolagem excessiva para continuar navegando!
+    // 0% a 5%: início afastado com card central visível (boxFactor = 1)
+    // 5% a 75%: fecha de forma ágil, fluida e contínua (boxFactor vai de 1 a 0)
+    // 75% a 100%: TOTALMENTE MONTADO (boxFactor = 0)
+    // Transição imediata e natural para a seção seguinte, sem vácuo ou tela marrom estéril!
     let boxFactor;
     if (progress <= 0.05) {
       boxFactor = 1;
-    } else if (progress <= 0.45) {
-      boxFactor = (0.45 - progress) / (0.45 - 0.05);
+    } else if (progress <= 0.75) {
+      boxFactor = (0.75 - progress) / (0.75 - 0.05);
     } else {
       boxFactor = 0; // Totalmente montado!
     }
@@ -918,7 +918,7 @@ function initMosaicGallery() {
     // Indicador elegante de Mosaico Montado
     const assembledPill = document.getElementById('mosaicAssembledPill');
     if (assembledPill) {
-      if (progress >= 0.45 && progress < 0.94) {
+      if (progress >= 0.75 && progress <= 1.0) {
         assembledPill.classList.add('show');
       } else {
         assembledPill.classList.remove('show');
@@ -927,41 +927,38 @@ function initMosaicGallery() {
 
     // Controlar transformação fluida do quadro central (.center)
     if (center) {
-      const isMobile = window.innerWidth <= 768;
-      const startW = isMobile ? Math.min(window.innerWidth * 0.88, 300) : 560;
-      const midW = isMobile ? Math.min(window.innerWidth * 0.70, 210) : 270;
-      const endW = isMobile ? 60 : 100;
+      const isMobile = window.innerWidth <= 600;
+      const isTablet = window.innerWidth <= 900;
+      const endW = isMobile ? 50 : (isTablet ? 75 : 105);
+      const startW = isMobile ? Math.min(window.innerWidth * 0.88, 300) : (isTablet ? 420 : 560);
+      const midW = isMobile ? Math.min(window.innerWidth * 0.65, 180) : (isTablet ? 220 : 270);
 
       let mouseW, textOpacity, mouseRotate, textDisplay;
 
-      if (progress < 0.20) {
-        const p = Math.max(0, (progress - 0.05) / 0.15);
+      if (progress < 0.35) {
+        const p = Math.max(0, (progress - 0.05) / 0.30);
         mouseW = startW - (startW - midW) * p;
-        textOpacity = Math.max(0, 1 - p);
+        textOpacity = Math.max(0, 1 - p * 1.5);
         mouseRotate = 0;
         textDisplay = textOpacity <= 0.05 ? 'none' : 'block';
-      } else if (progress < 0.45) {
-        const p = (progress - 0.20) / 0.25;
+      } else if (progress < 0.75) {
+        const p = (progress - 0.35) / 0.40;
         mouseW = midW - (midW - endW) * p;
         textOpacity = 0;
         mouseRotate = 180 * p;
         textDisplay = 'none';
       } else {
-        // A partir de 45%, o centro fica perfeitamente alinhado e travado no grid
         mouseW = endW;
         textOpacity = 0;
         mouseRotate = 180;
         textDisplay = 'none';
       }
 
-      // Ancoragem geométrica perfeita no centro da tela:
-      // O card reside na célula central (tamanho endW). Conforme o card expande ou retrai,
-      // a translação proporcional mantém o centro dele milimetricamente fixo no centro do mosaico.
-      const cx = (endW - mouseW) / 2;
-      const cy = (endW - mouseW) / 2;
-
+      // O card usa justify-self: center e align-self: center no CSS grid.
+      // Definir largura e altura simétricas garante ancoragem no centro absoluto sem desvios!
       center.style.width = `${mouseW}px`;
-      center.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+      center.style.height = `${mouseW}px`;
+      center.style.transform = 'none';
 
       const hgroup = center.querySelector('hgroup');
       if (hgroup) {
@@ -972,7 +969,7 @@ function initMosaicGallery() {
       const mouseIcon = center.querySelector('.mouse');
       if (mouseIcon) {
         mouseIcon.style.transform = `translate(-50%, 50%) rotate(${mouseRotate}deg)`;
-        mouseIcon.style.opacity = progress >= 0.45 ? '0' : '1';
+        mouseIcon.style.opacity = progress >= 0.70 ? '0' : '1';
       }
     }
 
