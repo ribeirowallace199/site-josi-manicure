@@ -355,6 +355,37 @@ img {
   margin-left: 12px;
 }
 
+/* Botão Início Direto no Header (Mobile & Desktop) */
+.mobile-nav-home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 38px;
+  padding: 0 12px;
+  background: #F4EFEA;
+  border: 1px solid var(--nude-border-dark);
+  border-radius: 4px;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.mobile-nav-home-btn:hover {
+  background: var(--bg-surface-tint);
+  border-color: var(--accent-gold);
+  color: var(--accent-gold);
+}
+
+@media (min-width: 961px) {
+  .mobile-nav-home-btn {
+    display: none;
+  }
+}
+
 /* Sacola de Cosméticos Integrada & Coordenada (Substitui o quadradinho isolado) */
 .nav-cart-btn {
   display: inline-flex;
@@ -436,7 +467,7 @@ img {
    BANNER PRINCIPAL / COMPOSIÇÃO EDITORIAL ASSIMÉTRICA
    ============================================================ */
 .hero-section {
-  padding: 40px 0 45px;
+  padding: 20px 0 22px;
   position: relative;
   background: radial-gradient(circle at 80% 20%, rgba(223, 200, 162, 0.12) 0%, transparent 60%);
 }
@@ -676,7 +707,7 @@ img {
    SEÇÕES GERAIS
    ============================================================ */
 .section {
-  padding: 48px 0;
+  padding: 22px 0;
 }
 
 .section-bg-soft {
@@ -688,7 +719,7 @@ img {
 .section-header {
   text-align: center;
   max-width: 680px;
-  margin: 0 auto 30px;
+  margin: 0 auto 14px;
 }
 
 .section-tag {
@@ -2150,11 +2181,11 @@ img {
 
 @media (max-width: 768px) {
   .section {
-    padding: 36px 0;
+    padding: 16px 0;
   }
 
   .section-header {
-    margin: 0 auto 22px;
+    margin: 0 auto 12px;
   }
 
   .top-notice-info {
@@ -2166,7 +2197,7 @@ img {
   }
 
   .hero-section {
-    padding: 32px 0 28px;
+    padding: 16px 0 14px;
   }
 
   .hero-editorial-manifesto {
@@ -2313,61 +2344,66 @@ img {
 
 .mosaic-gallery-section {
   position: relative;
-  background: #15110F;
-  padding-top: 36px;
+  background: #161210;
+  padding: 16px 0 18px;
   color: #FFFFFF;
   overflow: hidden !important;
   max-width: 100vw;
   width: 100%;
+}
+
+.mosaic-gallery-section .section-header {
+  margin: 0 auto 10px;
 }
 
 .mosaic-gallery-section .section-header .section-tag {
   background: rgba(194, 166, 118, 0.18);
   color: #E2CDAA;
   border-color: rgba(194, 166, 118, 0.35);
+  margin-bottom: 4px;
 }
 
 .mosaic-gallery-section .section-header .section-title {
   color: #FFFFFF;
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  margin-bottom: 4px;
 }
 
 .mosaic-gallery-section .section-header .section-subtitle {
   color: #D3C7BF;
-  max-width: 680px;
+  max-width: 580px;
   margin: 0 auto;
+  font-size: 0.86rem;
 }
 
 .mosaic-scroll-track {
   position: relative;
-  height: 112vh;
-  view-timeline-name: --gallery-scroll-timeline;
-  view-timeline-axis: block;
-  overflow: hidden !important;
+  height: auto;
+  overflow: visible;
   max-width: 100vw;
   width: 100%;
 }
 
 .mosaic-sticky-viewport {
-  position: sticky;
-  top: 0;
-  height: 72vh;
-  max-height: 560px;
+  position: relative;
+  height: auto;
+  max-height: none;
   width: 100%;
   max-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden !important;
-  background: radial-gradient(circle at center, #241D1A 0%, #120E0D 100%);
+  overflow: visible;
+  background: transparent;
 }
 
 .mosaic-wrapper {
-  --size-base: 88px;
-  --mosaic-gap: 10px;
+  --size-base: 68px;
+  --mosaic-gap: 8px;
   width: 94vw;
-  max-width: min(1200px, 100vw);
-  height: 60vh;
-  max-height: 480px;
+  max-width: 860px;
+  height: 310px;
+  max-height: 310px;
   display: grid;
   grid-template-columns: 1fr 2fr var(--size-base) 2fr 1fr;
   grid-template-rows: 1fr var(--size-base) 1fr;
@@ -2377,7 +2413,7 @@ img {
     "five  six    seven  seven  eight";
   gap: var(--mosaic-gap);
   position: relative;
-  perspective: 1200px;
+  margin: 0 auto;
 }
 
 .mosaic-tile {
@@ -2466,60 +2502,50 @@ img {
 /* center */
 .mosaic-tile.center {
   grid-area: center;
-  justify-self: center;
-  align-self: center;
-  background: linear-gradient(145deg, #2A211D 0%, #1A1412 100%);
+  justify-self: stretch;
+  align-self: stretch;
+  background: linear-gradient(145deg, #2A211D 0%, #15100E 100%);
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: var(--mouse-w, 440px);
-  height: var(--mouse-w, 440px);
-  max-width: min(440px, 85vw);
-  max-height: min(440px, 60vh);
-  aspect-ratio: 1;
-  border-radius: 18px;
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.75), 0 0 40px rgba(194, 166, 118, 0.18);
-  z-index: 10;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  z-index: 5;
   text-align: center;
-  padding: 20px;
+  padding: 4px;
   transform: none;
-}
-
-.mosaic-tile.center > hgroup {
-  font-family: 'Jura', sans-serif, var(--font-body);
-  font-weight: 300;
-  opacity: var(--text-opacity, 1);
-  display: var(--text-display, block);
-  transition: opacity 0.2s ease;
 }
 
 .mosaic-center-badge {
   display: inline-block;
-  font-size: 0.72rem;
-  letter-spacing: 0.22em;
+  font-size: 0.60rem;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--champagne);
-  margin-bottom: 8px;
+  margin-bottom: 2px;
   font-weight: 600;
 }
 
 .mosaic-center-brand {
-  font-family: var(--font-title);
-  font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
   font-weight: 600;
   color: #FFFFFF;
-  margin: 0 0 8px 0;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
+  margin: 0;
+  line-height: 1.1;
 }
 
 .mosaic-center-sub {
-  font-size: clamp(0.82rem, 1.2vw, 0.95rem);
+  font-size: 0.62rem;
   color: #D6C8C0;
-  margin: 0;
-  line-height: 1.4;
+  margin: 2px 0 0;
+  letter-spacing: 0.04em;
 }
 
 .mosaic-tile.center > .mouse {
@@ -2573,114 +2599,79 @@ img {
 }
 
 .mosaic-tile.assembled:hover:not(.center) {
-  transform: translate3d(0, 0, 0) scale(1.05) !important;
+  transform: translate3d(0, 0, 0) scale(1.04) !important;
   z-index: 15;
-  box-shadow: 0 20px 50px rgba(194, 166, 118, 0.5), 0 0 25px rgba(255, 255, 255, 0.15);
-  filter: brightness(1.12);
-  border-color: rgba(212, 175, 55, 0.7);
-}
-
-@keyframes animate-center {
-  0%,
-  5% {
-    --mouse-w: 600px;
-    --center-x: 0px;
-    --center-y: 0px;
-    --text-opacity: 1;
-  }
-  20% {
-    --mouse-w: 300px;
-    --center-x: 0px;
-    --center-y: 0px;
-    --text-opacity: 0;
-  }
-  25% {
-    --text-display: none;
-  }
-  45%,
-  100% {
-    --mouse-w: calc(var(--size-base));
-    --center-x: 0px;
-    --center-y: 0px;
-    --text-display: none;
-    --mouse-rotate: 180deg;
-    --text-opacity: 0;
-  }
-}
-
-@keyframes animate-boxes {
-  0%,
-  5% {
-    translate: var(--x) var(--y);
-  }
-  75%,
-  100% {
-    translate: 0;
-  }
-}
-
-@supports (animation-timeline: view()) {
-  .mosaic-tile:not(.center) {
-    animation-name: animate-boxes;
-    animation-timing-function: linear;
-    animation-fill-mode: both;
-    animation-timeline: --gallery-scroll-timeline;
-    animation-range: entry 5% exit 95%;
-  }
+  box-shadow: 0 16px 40px rgba(194, 166, 118, 0.4), 0 0 20px rgba(255, 255, 255, 0.12);
+  filter: brightness(1.08);
+  border-color: rgba(212, 175, 55, 0.6);
 }
 
 @media (max-width: 900px) {
-  .mosaic-sticky-viewport {
-    height: 64vh;
-    max-height: 480px;
-  }
   .mosaic-wrapper {
-    --size-base: 65px;
+    --size-base: 52px;
     width: 92vw;
-    max-width: 100%;
-    height: 52vh;
-    max-height: 400px;
-    gap: 7px;
-    overflow: hidden;
-  }
-  .mosaic-tile.center {
-    --mouse-w: 260px;
-    transform: none;
-    padding: 12px;
+    max-width: 680px;
+    height: 250px;
+    max-height: 250px;
+    gap: 6px;
   }
 }
 
 @media (max-width: 600px) {
-  .mosaic-scroll-track {
-    height: 102vh;
-    overflow: hidden !important;
-    max-width: 100vw;
+  .nav-container {
+    padding: 8px 12px;
+    gap: 6px;
   }
-  .mosaic-sticky-viewport {
-    height: 50vh;
-    max-height: 360px;
+  .brand-title {
+    font-size: 1.1rem;
+  }
+  .nav-actions {
+    gap: 5px;
+    margin-left: 0;
+  }
+  .mobile-nav-home-btn {
+    height: 32px;
+    padding: 0 9px;
+    font-size: 0.74rem;
+  }
+  .nav-cart-btn {
+    height: 32px;
+    padding: 0 9px;
+    font-size: 0.74rem;
+  }
+  .btn-editorial-book {
+    height: 32px;
+    padding: 0 10px;
+    font-size: 0.74rem;
+  }
+  .menu-toggle-btn {
+    display: none !important;
+  }
+
+  .mosaic-gallery-section {
+    padding: 12px 0 14px;
   }
   .mosaic-wrapper {
-    --size-base: 42px;
+    --size-base: 36px;
     gap: 4px;
-    height: 42vh;
-    max-height: 300px;
-    width: 94vw;
+    height: 185px;
+    max-height: 185px;
+    width: 95vw;
     max-width: 100%;
-    overflow: hidden;
   }
   .mosaic-tile.center {
-    --mouse-w: 190px;
-    transform: none;
-    padding: 8px;
+    padding: 2px;
+    border-radius: 6px;
   }
-  .mosaic-assembled-pill {
-    font-size: 0.70rem;
-    padding: 5px 12px;
-    bottom: 8px;
-    width: 90%;
-    justify-content: center;
-    text-align: center;
+  .mosaic-center-brand {
+    font-size: 0.76rem;
+  }
+  .mosaic-center-badge {
+    font-size: 0.50rem;
+    letter-spacing: 0.1em;
+  }
+  .mosaic-center-sub {
+    font-size: 0.50rem;
   }
 }
 

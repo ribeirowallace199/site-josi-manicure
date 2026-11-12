@@ -44,9 +44,18 @@
 
       <!-- Ações do Header -->
       <div class="nav-actions">
+        <!-- Botão Início Direto no Mobile & Desktop -->
+        <a href="#home" class="mobile-nav-home-btn" aria-label="Ir para o Início">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <span>Início</span>
+        </a>
+
         <!-- Sacola de Cosméticos Integrada & Coordenada -->
         <button class="nav-cart-btn" id="openCartBtn" aria-label="Abrir Sacola de Cosméticos">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
             <line x1="3" y1="6" x2="21" y2="6"></line>
             <path d="M16 10a4 4 0 0 1-8 0"></path>
@@ -58,7 +67,6 @@
         <!-- Botão de Agendamento Editorial -->
         <a href="#agendamento" class="btn-editorial-book">
           <span>Agendar</span>
-          <span class="btn-arrow-icon">→</span>
         </a>
 
         <!-- Menu Mobile -->
@@ -412,17 +420,9 @@
           </div>
           
           <div class="mosaic-tile center" id="mosaicCenter">
-            <hgroup>
-              <span class="mosaic-center-badge">GALERIA E ARTE</span>
-              <h3 class="mosaic-center-brand">Josi Manicures</h3>
-              <p class="mosaic-center-sub">Criações e acabamentos impecáveis</p>
-            </hgroup>
-            <div class="mouse">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="6" y="3" width="12" height="18" rx="6"></rect>
-                <line x1="12" y1="7" x2="12" y2="11"></line>
-              </svg>
-            </div>
+            <span class="mosaic-center-badge">ARTE</span>
+            <h3 class="mosaic-center-brand">Josi</h3>
+            <span class="mosaic-center-sub">Manicures</span>
           </div>
 
           <div class="mosaic-tile tile-5" style="background-image: url('assets/galeria/unha-5.jpg'); --bg: url('assets/galeria/unha-5.jpg');">
@@ -437,12 +437,6 @@
           <div class="mosaic-tile tile-8" style="background-image: url('assets/galeria/unha-8.jpg'); --bg: url('assets/galeria/unha-8.jpg');">
             <img src="assets/galeria/unha-8.jpg" alt="Arte e Cuidado Ungueal" class="mosaic-tile-img" loading="eager">
           </div>
-        </div>
-
-        <!-- Indicador Elegante de Mosaico Montado -->
-        <div class="mosaic-assembled-pill" id="mosaicAssembledPill">
-          <span class="pill-dot">✦</span>
-          <span>Mosaico completo • Passe o cursor ou toque nas unhas para admirar</span>
         </div>
       </div>
     </div>
